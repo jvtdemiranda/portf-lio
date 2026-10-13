@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>João Vitor · Portfólio</title>
+<meta name="description" content="Automação, relatórios e dashboards em Python para pequenos negócios. Projetos com demo, do problema ao resultado.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#15171B">
+<meta name="author" content="João Vitor Torres de Miranda">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="João Vitor · Automação e dados para pequenos negócios">
+<meta property="og:description" content="Relatórios que se montam sozinhos, dashboards e robôs em Python. Veja os projetos com demo e peça um orçamento.">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-visao-geral.png">
+<meta property="og:image:width" content="1800">
+<meta property="og:image:height" content="1140">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F0A63A'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='28' fill='%231A1206'%3EJV%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+<style>
+/* Layout: desktop primeiro. Hero dividido com uma janela de navegador que rola os prints reais; visor de estudos de caso (lista + painel);
+   calculadora de tempo gasto; pacotes; processo; dúvidas; contato. Grafite + âmbar, raio 12-18px em tudo. */
+:root{
+  --bg:#15171B; --tile:#1D2026; --tile-2:#242830; --fg:#ECEDEF; --muted:#A0A6B0; --line:#2E333C;
+  --accent:#F0A63A; --accent-ink:#1A1206; --accent-soft:rgba(240,166,58,.12);
+  --display:"Onest", system-ui, sans-serif; --mono:"Geist Mono", ui-monospace, monospace;
+  --ease-out:cubic-bezier(.23,1,.32,1); --r:16px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:84px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:16.5px;line-height:1.55}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:clamp(16px,3.5vw,48px)}
+.mono{font-family:var(--mono)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:15px;text-decoration:none;padding:13px 20px;border-radius:12px;border:0;cursor:pointer;white-space:nowrap;transition:transform .16s var(--ease-out),filter .2s ease}
+@media (hover:hover) and (pointer:fine){.btn:hover{filter:brightness(1.07)}.btn--soft:hover{filter:brightness(1.2)}}
+.btn:active{transform:scale(.97)}
+.btn--soft{background:var(--tile-2);color:var(--fg)}
+.chip{font-family:var(--mono);font-size:12px;color:var(--muted);background:var(--tile-2);border-radius:999px;padding:5px 10px;white-space:nowrap}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(21,23,27,.9);background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:800;text-decoration:none;font-size:17px;letter-spacing:-.01em;white-space:nowrap}
+.brand span{color:var(--accent)}
+.links{display:flex;gap:clamp(12px,2.2vw,30px);align-items:center;font-size:15px}
+.links a:not(.btn){text-decoration:none;color:var(--muted);transition:color .2s ease}
+@media (hover:hover){.links a:not(.btn):hover{color:var(--fg)}}
+@media (max-width:900px){.links .opt{display:none}}
+@media (max-width:640px){.links a:not(.btn){display:none}}
+
+/* hero */
+.hero{padding-block:clamp(36px,5vw,72px) clamp(32px,4vw,56px)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(28px,4vw,56px);align-items:center}
+.avail{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;color:var(--accent);background:var(--accent-soft);padding:7px 12px;border-radius:999px}
+.avail::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.hero h1{font-weight:800;font-size:clamp(38px,4.6vw,64px);line-height:1.02;letter-spacing:-.04em;margin:20px 0 0;text-wrap:balance}
+.hero h1 span{color:var(--accent)}
+.hero p{color:var(--muted);font-size:18.5px;max-width:34ch;margin:20px 0 0}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+@media (max-width:980px){.hero .wrap{grid-template-columns:minmax(0,1fr)}}
+
+/* janela de navegador com prints que rolam */
+.browser{background:#0F1114;border-radius:14px;box-shadow:0 0 0 1px var(--line),0 40px 80px -40px rgba(0,0,0,.8);overflow:hidden;min-width:0}
+.bar{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#1A1D22;border-bottom:1px solid var(--line)}
+.dots{display:flex;gap:6px}.dots i{width:10px;height:10px;border-radius:50%;background:#3A3F48}
+.tabs{display:flex;gap:4px;min-width:0;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar,.clist::-webkit-scrollbar{display:none}
+.tabs button{border:0;background:transparent;color:var(--muted);font-size:12.5px;padding:7px 11px;border-radius:8px;cursor:pointer;white-space:nowrap;position:relative;transition:color .2s ease,background .2s ease}
+.tabs button[aria-selected="true"]{background:var(--tile-2);color:var(--fg)}
+.tabs button .prog{position:absolute;left:8px;right:8px;bottom:2px;height:2px;border-radius:2px;background:var(--accent);transform-origin:left;transform:scaleX(0)}
+.url{display:flex;align-items:center;gap:8px;margin:0 12px 0;padding:8px 12px;background:#1A1D22;font-family:var(--mono);font-size:12.5px;color:var(--muted);border-bottom:1px solid var(--line)}
+.url svg{flex:none}
+.url a{margin-left:auto;color:var(--accent);text-decoration:none;white-space:nowrap}
+.view{position:relative;height:clamp(300px,34vw,470px);overflow:hidden;background:#fff}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden}
+.slide.on{opacity:1;visibility:visible}
+.slide img{width:100%;height:auto}
+.browser.manual .slide{overflow-y:auto}
+@media (max-width:640px){.url,.dots{display:none}}
+
+/* números */
+.proof{border-block:1px solid var(--line);margin-top:clamp(32px,4vw,56px)}
+.proof .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-block:28px}
+.proof b{display:block;font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums}
+.proof span{color:var(--muted);font-size:14.5px}
+@media (max-width:760px){.proof .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.sec{padding-block:clamp(72px,9vw,128px)}
+.sec-h{display:flex;flex-wrap:wrap;gap:16px 32px;justify-content:space-between;align-items:flex-end;margin-bottom:clamp(28px,3.5vw,44px)}
+.sec-h h2{margin:0;font-weight:800;font-size:clamp(32px,3.8vw,52px);letter-spacing:-.035em;line-height:1.02;max-width:18ch;text-wrap:balance}
+.sec-h p{margin:0;color:var(--muted);max-width:44ch}
+
+/* visor de estudos de caso */
+.cases{display:grid;grid-template-columns:minmax(220px,300px) minmax(0,1fr);gap:20px;align-items:start}
+.clist{display:flex;flex-direction:column;gap:6px;position:sticky;top:92px}
+.clist button{text-align:left;border:0;background:transparent;border-radius:14px;padding:14px 16px;cursor:pointer;display:flex;flex-direction:column;gap:2px;transition:background .2s ease}
+@media (hover:hover){.clist button:hover{background:var(--tile)}}
+.clist button[aria-selected="true"]{background:var(--tile-2);box-shadow:inset 3px 0 0 var(--accent)}
+.clist strong{font-size:16.5px;letter-spacing:-.01em}
+.clist span{font-size:13px;color:var(--muted)}
+.panel{background:var(--tile);border-radius:20px;padding:clamp(20px,2.6vw,36px);min-width:0}
+.panel[hidden]{display:none}
+.p-top{display:flex;flex-wrap:wrap;gap:12px 20px;justify-content:space-between;align-items:flex-start}
+.p-top h3{margin:0;font-size:clamp(26px,2.6vw,36px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
+.p-top .label{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px}
+.p-acts{display:flex;gap:10px;flex-wrap:wrap}
+.gallery{margin-top:24px;display:grid;grid-template-columns:minmax(0,1fr) 120px;gap:12px}
+.stage{position:relative;border-radius:14px;overflow:hidden;background:#F4F5F7;height:clamp(300px,32vw,460px);cursor:zoom-in;border:0;padding:0;width:100%;display:block}
+.stage img{width:100%;height:100%;object-fit:contain;object-position:center}
+.stage.dark{background:#0F1114}
+.stage .zoom{position:absolute;right:12px;bottom:12px;background:rgba(21,23,27,.82);color:var(--fg);font-family:var(--mono);font-size:12px;padding:6px 10px;border-radius:999px}
+.thumbs{display:flex;flex-direction:column;gap:10px}
+.thumbs button{border:0;padding:0;border-radius:10px;overflow:hidden;background:#F4F5F7;aspect-ratio:4/3;cursor:pointer;opacity:.55;transition:opacity .2s ease,box-shadow .2s ease}
+.thumbs button.dark{background:#0F1114}
+.thumbs button[aria-pressed="true"]{opacity:1;box-shadow:0 0 0 2px var(--accent)}
+@media (hover:hover){.thumbs button:hover{opacity:1}}
+.thumbs img{width:100%;height:100%;object-fit:contain}
+.gallery:has(.thumbs button:only-child){grid-template-columns:minmax(0,1fr)}
+.thumbs:has(button:only-child){display:none}
+.cap{margin:10px 0 0;font-size:13.5px;color:var(--muted)}
+.psr{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:24px}
+.psr div{background:var(--tile-2);border-radius:14px;padding:18px}
+.psr h4{margin:0 0 6px;font-size:12px;font-family:var(--mono);font-weight:500;color:var(--accent);letter-spacing:.04em;text-transform:uppercase}
+.psr p{margin:0;font-size:15px}
+.stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
+@media (max-width:980px){.cases{grid-template-columns:minmax(0,1fr)}.clist{position:static;flex-direction:row;overflow-x:auto;scrollbar-width:none}.clist button{flex:none}.clist{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent);padding-right:40px}}
+@media (max-width:760px){.gallery{grid-template-columns:minmax(0,1fr)}.thumbs{flex-direction:row}.thumbs button{width:96px}.psr{grid-template-columns:minmax(0,1fr)}}
+
+/* calculadora */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+.calc .in,.calc .out{background:var(--tile);border-radius:20px;padding:clamp(22px,3vw,40px)}
+.field{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.field label{font-weight:600}
+.field .row{display:flex;align-items:center;gap:16px}
+.field output{font-family:var(--mono);font-size:15px;min-width:76px;text-align:right;color:var(--accent)}
+input[type=range]{flex:1;accent-color:var(--accent);height:28px}
+.money{display:flex;align-items:center;background:var(--tile-2);border-radius:12px;padding:0 14px;max-width:220px}
+.money span{color:var(--muted);font-family:var(--mono)}
+.money input{background:transparent;border:0;color:var(--fg);font:inherit;font-family:var(--mono);font-size:17px;padding:12px 8px;width:100%}
+.money input:focus{outline:none}
+.money:focus-within{box-shadow:0 0 0 2px var(--accent)}
+.hint{font-size:13.5px;color:var(--muted);margin:0}
+.calc .out{background:var(--accent);color:var(--accent-ink);display:flex;flex-direction:column;justify-content:space-between;gap:28px}
+.big{white-space:nowrap;font-size:clamp(40px,4.6vw,68px);font-weight:800;letter-spacing:-.045em;line-height:1;font-variant-numeric:tabular-nums}
+.out .lbl{font-weight:600;margin-top:6px}
+.out .pair{display:grid;grid-template-columns:minmax(0,1fr);gap:22px}
+.out .note{font-size:13.5px;opacity:.8;margin:0}
+.out .btn{background:var(--accent-ink);color:var(--accent);align-self:flex-start}
+@media (max-width:860px){.calc{grid-template-columns:minmax(0,1fr)}}
+
+/* pacotes */
+.pkgs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.pkg{--x:-400px;--y:-400px;position:relative;background:var(--tile);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:14px;isolation:isolate}
+.pkg::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:radial-gradient(240px circle at var(--x) var(--y),var(--accent),transparent 60%),linear-gradient(var(--line),var(--line));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.pkg h3{margin:0;font-size:20px;letter-spacing:-.02em;line-height:1.15}
+.pkg .for{color:var(--muted);font-size:14.5px;margin:0}
+.pkg ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px;font-size:14.5px}
+.pkg li{display:flex;gap:8px}
+.pkg li::before{content:"";flex:none;width:6px;height:6px;margin-top:.6em;border-radius:2px;background:var(--accent)}
+.pkg .meta{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;font-size:13.5px;color:var(--muted)}
+.pkg .meta a{color:var(--accent);font-weight:600;text-decoration:none}
+@media (hover:hover) and (pointer:fine){.pkg .meta a:hover{text-decoration:underline;text-underline-offset:3px}}
+.pkg .ex{font-family:var(--mono);font-size:12px;color:var(--accent)}
+@media (max-width:1080px){.pkgs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.pkgs{grid-template-columns:minmax(0,1fr)}}
+
+/* processo */
+.steps{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;padding-top:34px}
+.steps .rail{position:absolute;left:0;right:0;top:9px;height:2px;background:var(--line)}
+.steps .rail i{position:absolute;inset:0;background:var(--accent);transform-origin:left}
+.step{position:relative}
+.step::before{content:"";position:absolute;top:-31px;left:0;width:14px;height:14px;border-radius:50%;background:var(--bg);box-shadow:0 0 0 2px var(--accent)}
+.step strong{display:block;font-size:19px;letter-spacing:-.01em}
+.step p{margin:6px 0 0;color:var(--muted);font-size:15px}
+.step .you{margin-top:12px;font-size:13.5px;background:var(--tile);border-radius:12px;padding:10px 12px}
+.step .you b{color:var(--accent);font-weight:600}
+@media (max-width:860px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:48px}.steps .rail{display:none}}
+@media (max-width:520px){.steps{grid-template-columns:minmax(0,1fr)}}
+
+/* dúvidas */
+.faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,80px)}
+.faq .stick{position:sticky;top:100px;align-self:start}
+.faq .stick h2{margin:0;font-weight:800;font-size:clamp(32px,3.8vw,52px);letter-spacing:-.035em;line-height:1.02}
+.faq .stick p{color:var(--muted)}
+.qa{border-bottom:1px solid var(--line)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;text-align:left;background:transparent;border:0;padding:22px 0;font-size:18px;font-weight:600;cursor:pointer}
+.qa button i{flex:none;width:28px;height:28px;border-radius:50%;background:var(--tile-2);position:relative;transition:transform .3s var(--ease-out),background .2s ease}
+.qa button i::before,.qa button i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:2px;margin:-1px 0 0 -5.5px;background:var(--fg);border-radius:2px}
+.qa button i::after{transform:rotate(90deg);transition:transform .3s var(--ease-out)}
+.qa button[aria-expanded="true"] i{background:var(--accent)}
+.qa button[aria-expanded="true"] i::before,.qa button[aria-expanded="true"] i::after{background:var(--accent-ink)}
+.qa button[aria-expanded="true"] i::after{transform:rotate(0)}
+.qa .ans{overflow:hidden;height:0}
+.qa .ans p{margin:0;padding:0 44px 22px 0;color:var(--muted);max-width:62ch}
+@media (max-width:860px){.faq{grid-template-columns:minmax(0,1fr)}.faq .stick{position:static}}
+
+/* sobre */
+.about{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:20px}
+.about .txt{background:var(--tile);border-radius:20px;padding:clamp(22px,3vw,40px)}
+.about .txt p{margin:0;font-size:clamp(20px,1.8vw,25px);line-height:1.4;letter-spacing:-.01em}
+.about .txt p+p{margin-top:16px;font-size:16px;color:var(--muted);letter-spacing:0}
+.about .side{background:var(--tile);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:16px}
+.about .side dt{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.about .side dd{margin:2px 0 0;font-weight:600}
+@media (max-width:860px){.about{grid-template-columns:minmax(0,1fr)}}
+
+/* contato */
+.contact .box{background:var(--accent);color:var(--accent-ink);border-radius:28px;padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,4vw,56px)}
+.contact h2{margin:0;font-weight:800;font-size:clamp(36px,4.8vw,68px);letter-spacing:-.04em;line-height:1}
+.contact .lead{margin:18px 0 0;font-size:18px;max-width:36ch;font-weight:500}
+.send{align-self:start;background:rgba(26,18,6,.08);border-radius:18px;padding:22px}
+.send h3{margin:0 0 10px;font-size:16px}
+.send ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.ways{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.way{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--accent-ink);color:var(--fg);border-radius:14px;padding:14px 16px}
+.way span{font-family:var(--mono);font-size:12px;color:var(--muted);display:block}
+.way b{font-weight:600;user-select:all;overflow-wrap:break-word;min-width:0}
+#w1{white-space:nowrap}
+.way b a{color:inherit;text-decoration:none}
+@media (hover:hover) and (pointer:fine){.way b a:hover{color:var(--accent)}}
+.way button{border:0;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:13px;padding:8px 12px;border-radius:10px;cursor:pointer;transition:transform .16s var(--ease-out)}
+.way button:active{transform:scale(.96)}
+@media (max-width:860px){.contact .box{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:480px){.way button{display:none}.contact .box{padding:24px 20px}.way b{font-size:15px}}
+footer .wrap{padding-block:28px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:14px;color:var(--muted)}
+
+/* visualizador de imagem */
+dialog.lb{border:0;padding:0;background:transparent;max-width:min(1400px,96vw);max-height:92vh;width:100%}
+dialog.lb::backdrop{background:rgba(8,9,11,.86)}
+.lb .inner{background:#F4F5F7;border-radius:14px;overflow:auto;max-height:86vh}
+.lb .inner.dark{background:#0F1114}
+.lb img{width:100%;height:auto;margin:0 auto}
+.lb .tall img{width:auto;max-width:100%;margin:0 auto}
+.lb .close{position:absolute;top:10px;right:10px;border:0;background:var(--accent);color:var(--accent-ink);font-weight:700;border-radius:999px;padding:8px 14px;cursor:pointer}
+.lb .cap2{color:#C9CDD3;font-size:14px;margin-top:10px;text-align:center}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#topo">João Vitor<span>.</span></a>
+    <nav class="links" aria-label="Principal">
+      <a href="#projetos">Projetos</a>
+      <a class="opt" href="#servicos">Serviços</a>
+      <a class="opt" href="#processo">Como funciona</a>
+      <a class="opt" href="#duvidas">Dúvidas</a>
+      <a class="btn" href="#contato">Pedir orçamento</a>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="avail up">Aberto a novos projetos</span>
+        <h1 class="h1">Automação e dados para <span>pequenos negócios.</span></h1>
+        <p class="up">Relatórios que se montam sozinhos, dashboards e robôs em Python para sua equipe parar de copiar e colar.</p>
+        <div class="ctas up"><a class="btn" href="#contato">Pedir orçamento</a><a class="btn btn--soft" href="#projetos">Ver projetos</a></div>
+      </div>
+      <div class="browser up" id="browser">
+        <div class="bar">
+          <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="tabs" role="tablist" aria-label="Demos dos projetos">
+            <button type="button" role="tab" aria-selected="true" data-i="0">Monitor CMED<span class="prog"></span></button>
+            <button type="button" role="tab" aria-selected="false" data-i="1">Relatório de Vendas<span class="prog"></span></button>
+            <button type="button" role="tab" aria-selected="false" data-i="2">Tráfego Pago<span class="prog"></span></button>
+          </div>
+        </div>
+        <div class="url"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg><span id="urltext">monitor-precos-cmed.vercel.app</span><a id="urlgo" href="https://monitor-precos-cmed.vercel.app" target="_blank" rel="noopener">Abrir ↗</a></div>
+        <div class="view">
+          <div class="slide on" data-url="monitor-precos-cmed.vercel.app"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/monitor-precos-cmed@3d171e7f97d78e7d7a2573e6ebc0629098f3610f/docs/mudancas.png" alt="Monitor CMED: preços de medicamentos que mudaram desde a lista anterior da Anvisa" width="1497" height="1385"></div>
+          <div class="slide" data-url="automacao-relatorio-vendas.vercel.app"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/automacao-relatorio-vendas@11cdd93f96349f961725ba24c2999a1f10fabc6b/docs/pagina.png" alt="Relatório de vendas de agosto com resultado de cada loja contra a meta" width="1600" height="1163"></div>
+          <div class="slide" data-url="dashboard-trafego-pago-seven.vercel.app"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-visao-geral.png" alt="Painel de tráfego pago com investimento, receita, ROAS e funil de conversão" width="1600" height="1013"></div>
+        </div>
+      </div>
+    </div>
+    <div class="proof">
+      <div class="wrap">
+        <div><b class="count" data-to="5">5</b><span>demos no ar para você testar</span></div>
+        <div><b class="count" data-to="26242">26.242</b><span>preços da Anvisa conferidos por atualização</span></div>
+        <div><b>3 → 1</b><span>planilhas de sistemas diferentes viram um relatório</span></div>
+        <div><b>100%</b><span>do código aberto no GitHub</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="projetos">
+    <div class="wrap">
+      <div class="sec-h">
+        <h2>Projetos, do problema ao resultado</h2>
+        <p>Projetos de portfólio feitos com dados de exemplo, mas com os problemas que aparecem em empresas de verdade. Abra as imagens para ver em tamanho real.</p>
+      </div>
+      <div class="cases">
+        <div class="clist" role="tablist" aria-label="Projetos">
+          <button type="button" role="tab" aria-selected="true" aria-controls="p0" id="t0"><strong>Monitor de Preços CMED</strong><span>Farmácias · web scraping</span></button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="p1" id="t1"><strong>Relatório de Vendas</strong><span>Varejo · automação</span></button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="p2" id="t2"><strong>Painel de Tráfego Pago</strong><span>E-commerce · dashboard</span></button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="p3" id="t3"><strong>Financeiro PME</strong><span>Serviços · dados</span></button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="p4" id="t4"><strong>Vic &amp; Jão</strong><span>Restaurante · bot com IA</span></button>
+        </div>
+
+        <div class="panels">
+          <article class="panel" id="p0" role="tabpanel" aria-labelledby="t0">
+            <div class="p-top"><div><h3>Monitor de Preços CMED</h3><div class="label">Projeto de portfólio · lista oficial real da Anvisa</div></div><div class="p-acts"><a class="btn" href="https://monitor-precos-cmed.vercel.app" target="_blank" rel="noopener">Abrir demo ↗</a><a class="btn btn--soft" href="https://github.com/jvtdemiranda/monitor-precos-cmed" target="_blank" rel="noopener">Código</a></div></div>
+            <div class="gallery">
+              <button type="button" class="stage" aria-label="Ampliar imagem"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/monitor-precos-cmed@3d171e7f97d78e7d7a2573e6ebc0629098f3610f/docs/mudancas.png" alt="Preços que mudaram desde a lista anterior, com 6 casos fora do normal destacados" width="1497" height="1385"><span class="zoom">Ampliar</span></button>
+              <div class="thumbs">
+                <button type="button" aria-pressed="true" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/monitor-precos-cmed@3d171e7f97d78e7d7a2573e6ebc0629098f3610f/docs/mudancas.png" data-cap="O que mudou desde a lista anterior. Casos fora do normal ficam em destaque para conferir." data-w="1497" data-h="1385"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/monitor-precos-cmed@3d171e7f97d78e7d7a2573e6ebc0629098f3610f/docs/mudancas.png" alt="" loading="lazy"></button>
+                <button type="button" aria-pressed="false" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/monitor-precos-cmed@3d171e7f97d78e7d7a2573e6ebc0629098f3610f/docs/conferidor.png" data-cap="Conferidor: a farmácia cola a própria tabela e vê o que está acima do teto." data-w="1500" data-h="2432"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/monitor-precos-cmed@3d171e7f97d78e7d7a2573e6ebc0629098f3610f/docs/conferidor.png" alt="" loading="lazy"></button>
+                <button type="button" aria-pressed="false" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/monitor-precos-cmed@3d171e7f97d78e7d7a2573e6ebc0629098f3610f/docs/planilha-resumo.png" data-cap="Planilha de resumo gerada para quem prefere trabalhar no Excel." data-w="1345" data-h="750"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/monitor-precos-cmed@3d171e7f97d78e7d7a2573e6ebc0629098f3610f/docs/planilha-resumo.png" alt="" loading="lazy"></button>
+              </div>
+            </div>
+            <p class="cap">O que mudou desde a lista anterior. Casos fora do normal ficam em destaque para conferir.</p>
+            <div class="psr">
+              <div><h4>Problema</h4><p>A farmácia não pode vender acima do preço máximo definido pela Anvisa, e a lista oficial tem 26 mil itens e muda quase todo mês.</p></div>
+              <div><h4>O que eu fiz</h4><p>Robô que baixa a lista sozinho, limpa os dados, compara com a anterior e publica um conferidor.</p></div>
+              <div><h4>Resultado</h4><p>Na última lista: 41 preços mudaram, 6 fora do normal sinalizados e 306 itens novos, sem ninguém abrir a planilha.</p></div>
+            </div>
+            <div class="stack"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">web scraping</span><span class="chip">GitHub Actions</span></div>
+          </article>
+
+          <article class="panel" id="p1" role="tabpanel" aria-labelledby="t1" hidden>
+            <div class="p-top"><div><h3>Relatório de Vendas automático</h3><div class="label">Projeto de portfólio · dados de exemplo de 3 lojas</div></div><div class="p-acts"><a class="btn" href="https://automacao-relatorio-vendas.vercel.app" target="_blank" rel="noopener">Abrir demo ↗</a><a class="btn btn--soft" href="https://github.com/jvtdemiranda/automacao-relatorio-vendas" target="_blank" rel="noopener">Código</a></div></div>
+            <div class="gallery">
+              <button type="button" class="stage" aria-label="Ampliar imagem"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/automacao-relatorio-vendas@11cdd93f96349f961725ba24c2999a1f10fabc6b/docs/pagina.png" alt="Relatório do mês com faturamento de cada loja contra a meta" width="1600" height="1163" loading="lazy"><span class="zoom">Ampliar</span></button>
+              <div class="thumbs">
+                <button type="button" aria-pressed="true" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/automacao-relatorio-vendas@11cdd93f96349f961725ba24c2999a1f10fabc6b/docs/pagina.png" data-cap="Relatório do mês na web: cada loja contra a meta e contra o mês anterior." data-w="1600" data-h="1163"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/automacao-relatorio-vendas@11cdd93f96349f961725ba24c2999a1f10fabc6b/docs/pagina.png" alt="" loading="lazy"></button>
+                <button type="button" aria-pressed="false" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/automacao-relatorio-vendas@11cdd93f96349f961725ba24c2999a1f10fabc6b/docs/qualidade-dos-dados.png" data-cap="Antes de somar, o robô mostra o que encontrou e corrigiu em cada planilha." data-w="1392" data-h="372"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/automacao-relatorio-vendas@11cdd93f96349f961725ba24c2999a1f10fabc6b/docs/qualidade-dos-dados.png" alt="" loading="lazy"></button>
+                <button type="button" aria-pressed="false" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/automacao-relatorio-vendas@11cdd93f96349f961725ba24c2999a1f10fabc6b/docs/relatorio-pdf.png" data-cap="O mesmo relatório em PDF, pronto para mandar para a gerência." data-w="1075" data-h="1521"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/automacao-relatorio-vendas@11cdd93f96349f961725ba24c2999a1f10fabc6b/docs/relatorio-pdf.png" alt="" loading="lazy"></button>
+              </div>
+            </div>
+            <p class="cap">Relatório do mês na web: cada loja contra a meta e contra o mês anterior.</p>
+            <div class="psr">
+              <div><h4>Problema</h4><p>Todo fim de mês alguém junta à mão as planilhas das lojas, cada uma exportada de um sistema diferente.</p></div>
+              <div><h4>O que eu fiz</h4><p>Robô que lê os 3 formatos, corrige os problemas e gera o relatório em PDF, Excel e web.</p></div>
+              <div><h4>Resultado</h4><p>957 vendas consolidadas. Encontrou e tratou 10 linhas duplicadas, 7 devoluções e um arquivo com acentuação quebrada.</p></div>
+            </div>
+            <div class="stack"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">openpyxl</span><span class="chip">reportlab</span></div>
+          </article>
+
+          <article class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+            <div class="p-top"><div><h3>Painel de Tráfego Pago</h3><div class="label">Projeto de portfólio · loja fictícia, dados de exemplo</div></div><div class="p-acts"><a class="btn" href="https://dashboard-trafego-pago-seven.vercel.app" target="_blank" rel="noopener">Abrir demo ↗</a><a class="btn btn--soft" href="https://github.com/jvtdemiranda/dashboard-trafego-pago" target="_blank" rel="noopener">Código</a></div></div>
+            <div class="gallery">
+              <button type="button" class="stage" aria-label="Ampliar imagem"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-visao-geral.png" alt="Resultado do período e funil de conversão" width="1600" height="1013" loading="lazy"><span class="zoom">Ampliar</span></button>
+              <div class="thumbs">
+                <button type="button" aria-pressed="true" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-visao-geral.png" data-cap="Resultado do período e funil, com o ROAS mínimo calculado pela margem do produto." data-w="1600" data-h="1013"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-visao-geral.png" alt="" loading="lazy"></button>
+                <button type="button" aria-pressed="false" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-anuncios.png" data-cap="Cada anúncio com a decisão sugerida: escalar, manter ou pausar." data-w="1600" data-h="887"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-anuncios.png" alt="" loading="lazy"></button>
+                <button type="button" aria-pressed="false" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-meta-x-loja.png" data-cap="O que o Meta reporta comparado com os pedidos reais da loja." data-w="1600" data-h="429"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-meta-x-loja.png" alt="" loading="lazy"></button>
+              </div>
+            </div>
+            <p class="cap">Resultado do período e funil, com o ROAS mínimo calculado pela margem do produto.</p>
+            <div class="psr">
+              <div><h4>Problema</h4><p>O relatório do Meta Ads mostra métricas, mas não diz se o anúncio deixa dinheiro depois do custo do produto.</p></div>
+              <div><h4>O que eu fiz</h4><p>Painel que cruza o Meta Ads com os pedidos reais (via UTM) e considera a margem da loja.</p></div>
+              <div><h4>Resultado</h4><p>No exemplo: ROAS de 3,91x contra um mínimo de 2,86x, e uma decisão clara para cada um dos anúncios.</p></div>
+            </div>
+            <div class="stack"><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">Meta Ads</span></div>
+          </article>
+
+          <article class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+            <div class="p-top"><div><h3>Dashboard Financeiro PME</h3><div class="label">Projeto de portfólio · 200 transações de exemplo</div></div><div class="p-acts"><a class="btn" href="https://dashboard-financeiro-pme.vercel.app" target="_blank" rel="noopener">Abrir demo ↗</a><a class="btn btn--soft" href="https://github.com/jvtdemiranda/dashboard-financeiro-PME" target="_blank" rel="noopener">Código</a></div></div>
+            <div class="gallery">
+              <button type="button" class="stage" aria-label="Ampliar imagem"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-resumo.png" alt="Resumo financeiro com recebido, pago, saldo e fluxo de caixa mensal" width="780" height="1688" loading="lazy"><span class="zoom">Ampliar</span></button>
+              <div class="thumbs">
+                <button type="button" aria-pressed="true" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-resumo.png" data-cap="Resumo: recebido, pago, saldo de caixa e o fluxo mês a mês." data-w="780" data-h="1688"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-resumo.png" alt="" loading="lazy"></button>
+                <button type="button" aria-pressed="false" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-contas.png" data-cap="Contas a pagar e a receber, com o que está atrasado." data-w="780" data-h="1688"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-contas.png" alt="" loading="lazy"></button>
+                <button type="button" aria-pressed="false" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-dre.png" data-cap="DRE simplificado, calculado a partir do export bruto do sistema." data-w="780" data-h="1688"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-dre.png" alt="" loading="lazy"></button>
+              </div>
+            </div>
+            <p class="cap">Resumo: recebido, pago, saldo de caixa e o fluxo mês a mês.</p>
+            <div class="psr">
+              <div><h4>Problema</h4><p>O export do sistema financeiro chega com datas em formatos diferentes e erros de digitação.</p></div>
+              <div><h4>O que eu fiz</h4><p>Tratamento dos dados em Python e um painel com fluxo de caixa, contas e DRE, mais a versão em Excel.</p></div>
+              <div><h4>Resultado</h4><p>200 transações viram 4 telas que respondem quanto entrou, quanto saiu e o que está pendente.</p></div>
+            </div>
+            <div class="stack"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">openpyxl</span><span class="chip">Excel</span></div>
+          </article>
+
+          <article class="panel" id="p4" role="tabpanel" aria-labelledby="t4" hidden>
+            <div class="p-top"><div><h3>Vic &amp; Jão, chatbot de WhatsApp</h3><div class="label">Projeto de portfólio · restaurante simulado</div></div><div class="p-acts"><a class="btn" href="https://github.com/jvtdemiranda/vic-e-jao-whatsapp-bot" target="_blank" rel="noopener">Ver no GitHub ↗</a></div></div>
+            <div class="gallery">
+              <button type="button" class="stage dark" aria-label="Ampliar imagem"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/vic-e-jao-whatsapp-bot@c560295664de516ae00558bc5e608749c8ab160a/fluxo-n8n.png" alt="Fluxo do chatbot no n8n" width="1600" height="816" loading="lazy"><span class="zoom">Ampliar</span></button>
+              <div class="thumbs">
+                <button type="button" class="dark" aria-pressed="true" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/vic-e-jao-whatsapp-bot@c560295664de516ae00558bc5e608749c8ab160a/fluxo-n8n.png" data-cap="O fluxo no n8n: recebe a mensagem, busca o histórico, chama a IA e responde." data-w="1600" data-h="816" data-dark="1"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/vic-e-jao-whatsapp-bot@c560295664de516ae00558bc5e608749c8ab160a/fluxo-n8n.png" alt="" loading="lazy"></button>
+              </div>
+            </div>
+            <p class="cap">O fluxo no n8n: recebe a mensagem, busca o histórico, chama a IA e responde.</p>
+            <div class="psr">
+              <div><h4>Problema</h4><p>O restaurante perde pedidos quando demora para responder no WhatsApp nos horários de pico.</p></div>
+              <div><h4>O que eu fiz</h4><p>Bot que atende do cardápio ao pedido, com IA nas respostas e histórico salvo no Google Sheets.</p></div>
+              <div><h4>Resultado</h4><p>O cliente escolhe o prato, a entrega e o pagamento na conversa, e o bot lembra do que já foi dito.</p></div>
+            </div>
+            <div class="stack"><span class="chip">n8n</span><span class="chip">Evolution API</span><span class="chip">Llama via Groq</span><span class="chip">Docker</span></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="conta" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-h">
+        <h2>Quanto custa fazer isso à mão?</h2>
+        <p>Uma conta rápida para ver o tamanho do tempo gasto hoje com planilha e copia e cola.</p>
+      </div>
+      <div class="calc">
+        <form class="in" id="calcform">
+          <div class="field">
+            <label for="horas">Horas por semana em tarefas repetitivas</label>
+            <div class="row"><input type="range" id="horas" min="1" max="30" step="1" value="6"><output for="horas" id="horasOut">6 h</output></div>
+          </div>
+          <div class="field">
+            <label for="pessoas">Pessoas fazendo essas tarefas</label>
+            <div class="row"><input type="range" id="pessoas" min="1" max="10" step="1" value="1"><output for="pessoas" id="pessoasOut">1</output></div>
+          </div>
+          <div class="field">
+            <label for="valor">Custo da hora de trabalho</label>
+            <div class="money"><span>R$</span><input id="valor" type="number" inputmode="decimal" min="0" max="1000" step="any" value="25"></div>
+          </div>
+          <p class="hint">Exemplos: juntar planilhas de lojas, conferir preços, montar relatório do mês, responder às mesmas perguntas no WhatsApp.</p>
+        </form>
+        <div class="out" aria-live="polite">
+          <div class="pair">
+            <div><div class="big" id="hAno">288</div><div class="lbl">horas por ano</div></div>
+            <div><div class="big" id="rAno">R$ 7.200</div><div class="lbl">por ano em trabalho manual</div></div>
+          </div>
+          <p class="note">Estimativa simples: horas por semana × pessoas × 48 semanas × custo da hora. Não é promessa de economia: serve para saber se vale a pena automatizar.</p>
+          <a class="btn" href="#contato">Pedir orçamento</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="servicos" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-h">
+        <h2>O que eu entrego</h2>
+        <p>Cada projeto sai com o código, instruções de uso e um período de ajustes depois da entrega.</p>
+      </div>
+      <div class="pkgs">
+        <div class="pkg">
+          <h3>Relatório automático</h3>
+          <p class="for">Para quem junta planilhas toda semana ou todo mês.</p>
+          <ul><li>Leitura das suas planilhas, do jeito que elas são</li><li>Relatório em PDF, Excel ou web</li><li>Aviso quando um arquivo vem com problema</li></ul>
+          <span class="ex">Ex.: Relatório de Vendas</span>
+          <div class="meta"><span>Prazo e valor sob medida</span><a href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento%20de%20Relat%C3%B3rio%20autom%C3%A1tico." target="_blank" rel="noopener">Pedir orçamento</a></div>
+        </div>
+        <div class="pkg">
+          <h3>Dashboard</h3>
+          <p class="for">Para quem quer ver vendas ou financeiro sem abrir planilha.</p>
+          <ul><li>Indicadores escolhidos com você</li><li>Versão web que abre no celular</li><li>Atualização a partir dos seus dados</li></ul>
+          <span class="ex">Ex.: Financeiro PME, Tráfego Pago</span>
+          <div class="meta"><span>Prazo e valor sob medida</span><a href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento%20de%20Dashboard." target="_blank" rel="noopener">Pedir orçamento</a></div>
+        </div>
+        <div class="pkg">
+          <h3>Robô de coleta</h3>
+          <p class="for">Para quem acompanha preços ou informações de sites.</p>
+          <ul><li>Coleta agendada, sem ninguém apertar botão</li><li>Histórico e alerta do que mudou</li><li>Entrega em planilha ou página</li></ul>
+          <span class="ex">Ex.: Monitor CMED</span>
+          <div class="meta"><span>Prazo e valor sob medida</span><a href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento%20de%20Rob%C3%B4%20de%20coleta." target="_blank" rel="noopener">Pedir orçamento</a></div>
+        </div>
+        <div class="pkg">
+          <h3>Bot e integração</h3>
+          <p class="for">Para quem responde às mesmas perguntas o dia todo.</p>
+          <ul><li>WhatsApp ou Telegram</li><li>Integração com Google Sheets</li><li>IA nas respostas quando faz sentido</li></ul>
+          <span class="ex">Ex.: Vic &amp; Jão, Bot do Centro Acadêmico</span>
+          <div class="meta"><span>Prazo e valor sob medida</span><a href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento%20de%20Bot%20e%20integra%C3%A7%C3%A3o." target="_blank" rel="noopener">Pedir orçamento</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="processo" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-h"><h2>Como funciona</h2><p>Você sabe o prazo e o valor antes de começar, e acompanha o andamento.</p></div>
+      <div class="steps">
+        <div class="rail" aria-hidden="true"><i></i></div>
+        <div class="step"><strong>Conversa</strong><p>Entendo o processo e onde está a perda de tempo.</p><div class="you"><b>Você me manda:</b> um exemplo da planilha ou um print do processo.</div></div>
+        <div class="step"><strong>Proposta</strong><p>Escopo, prazo e valor por escrito.</p><div class="you"><b>Você decide:</b> sem compromisso até aprovar.</div></div>
+        <div class="step"><strong>Construção</strong><p>Testo com os seus dados reais, não com exemplo.</p><div class="you"><b>Você vê:</b> o andamento antes da entrega final.</div></div>
+        <div class="step"><strong>Entrega</strong><p>Código documentado e explicação simples de como usar.</p><div class="you"><b>Você recebe:</b> um período de ajustes depois da entrega.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="duvidas" style="padding-top:0">
+    <div class="wrap faq">
+      <div class="stick"><h2>Dúvidas comuns</h2><p>Não achou a sua? <a href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento." target="_blank" rel="noopener" style="color:var(--accent)">Pergunte no WhatsApp</a>.</p></div>
+      <div>
+        <div class="qa"><button type="button" aria-expanded="false" aria-controls="a1" id="q1">Preciso trocar o sistema que uso hoje?<i aria-hidden="true"></i></button><div class="ans" id="a1" role="region" aria-labelledby="q1"><p>Não. A automação trabalha em cima do que você já exporta hoje, seja Excel, CSV ou Google Sheets.</p></div></div>
+        <div class="qa"><button type="button" aria-expanded="false" aria-controls="a2" id="q2">E se a planilha mudar de formato?<i aria-hidden="true"></i></button><div class="ans" id="a2" role="region" aria-labelledby="q2"><p>O robô avisa quando um arquivo chega diferente do esperado, em vez de somar errado. Ajustes desse tipo entram no período de ajustes combinado.</p></div></div>
+        <div class="qa"><button type="button" aria-expanded="false" aria-controls="a3" id="q3">O código fica comigo?<i aria-hidden="true"></i></button><div class="ans" id="a3" role="region" aria-labelledby="q3"><p>Fica. Entrego o código organizado e documentado, para você não depender de mim para continuar usando.</p></div></div>
+        <div class="qa"><button type="button" aria-expanded="false" aria-controls="a4" id="q4">Meus dados ficam seguros?<i aria-hidden="true"></i></button><div class="ans" id="a4" role="region" aria-labelledby="q4"><p>Uso só os dados necessários para o projeto e não compartilho com ninguém. Quando possível, a automação roda no seu próprio computador ou na sua conta.</p></div></div>
+        <div class="qa"><button type="button" aria-expanded="false" aria-controls="a5" id="q5">Como funciona o pagamento?<i aria-hidden="true"></i></button><div class="ans" id="a5" role="region" aria-labelledby="q5"><p>Fica combinado na proposta, por escrito, antes de qualquer trabalho começar. Você só aprova se fizer sentido para você.</p></div></div>
+        <div class="qa"><button type="button" aria-expanded="false" aria-controls="a6" id="q6">Atende fora de Belém?<i aria-hidden="true"></i></button><div class="ans" id="a6" role="region" aria-labelledby="q6"><p>Sim. O trabalho é todo remoto, com conversas por chamada ou WhatsApp.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="sobre" style="padding-top:0">
+    <div class="wrap about">
+      <div class="txt">
+        <p>Sou o João Vitor. Estudo Sistemas de Informação na UFRA e trabalho com BI numa farmácia de manipulação, montando os painéis de vendas da equipe.</p>
+        <p>Conheço de perto a rotina de quem vive dentro de planilha. Foi daí que vieram os projetos acima: problemas que eu vi acontecer e resolvi com código.</p>
+      </div>
+      <dl class="side">
+        <div><dt>Hoje</dt><dd>Estagiário de BI, Farmácia Dehon</dd></div>
+        <div><dt>Formação</dt><dd>Sistemas de Informação, UFRA</dd></div>
+        <div><dt>Ferramentas</dt><dd>Python, pandas, Excel, n8n, APIs</dd></div>
+        <div><dt>Código</dt><dd><a href="https://github.com/jvtdemiranda" target="_blank" rel="noopener">github.com/jvtdemiranda</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec contact" id="contato" style="padding-top:0">
+    <div class="wrap">
+      <div class="box">
+        <div>
+          <h2>Tem uma tarefa que se repete toda semana?</h2>
+          <p class="lead">Me conta. Respondo com uma ideia de solução, prazo e valor.</p>
+          <div class="ways">
+            <div class="way"><div><span>WhatsApp</span><b id="w1"><a href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento." target="_blank" rel="noopener">(91) 99348-2608</a></b></div><button type="button" data-copy="w1">Copiar</button></div>
+            <div class="way"><div><span>E-mail</span><b id="w2"><a href="mailto:miranda.j9090@gmail.com?subject=Or%C3%A7amento%20pelo%20portf%C3%B3lio">miranda.j9090@gmail.com</a></b></div><button type="button" data-copy="w2">Copiar</button></div>
+          </div>
+        </div>
+        <div class="send">
+          <h3>Para eu responder mais rápido, mande:</h3>
+          <ol>
+            <li>O que a sua empresa faz e quem usa a planilha hoje.</li>
+            <li>Um exemplo do arquivo ou um print do processo.</li>
+            <li>Quanto tempo isso toma por semana.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><span>© 2026 João Vitor Torres de Miranda</span><span>Belém-PA, atendimento remoto</span></div></footer>
+
+<dialog class="lb" id="lb" aria-label="Imagem ampliada">
+  <button type="button" class="close" id="lbclose">Fechar</button>
+  <div class="inner" id="lbinner"><img id="lbimg" src="https://cdn.jsdelivr.net/gh/jvtdemiranda/monitor-precos-cmed@3d171e7f97d78e7d7a2573e6ebc0629098f3610f/docs/mudancas.png" alt=""></div>
+  <div class="cap2" id="lbcap"></div>
+</dialog>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script>
+(function(){
+  if(!document.documentElement.lang) document.documentElement.lang="pt-BR";
+  const G=window.gsap;
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fine=matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if(G){G.registerPlugin(ScrollTrigger,SplitText);}
+
+  /* ---------- janela do hero: troca de demo e rolagem do print ---------- */
+  const tabs=[...document.querySelectorAll(".tabs button")];
+  const slides=[...document.querySelectorAll(".slide")];
+  const view=document.querySelector(".view");
+  const urltext=document.getElementById("urltext"), urlgo=document.getElementById("urlgo");
+  const tabsEl=document.querySelector(".tabs"), browser=document.getElementById("browser");
+  let cur=0, tl=null, paused=false, inView=true;
+  if(!G||reduce) browser.classList.add("manual");
+  function scrollTween(i){
+    if(!G||reduce) return;
+    const img=slides[i].querySelector("img");
+    const dist=()=>Math.max(0,img.offsetHeight-view.clientHeight);
+    const prog=tabs[i].querySelector(".prog");
+    tl&&tl.kill();
+    G.set(img,{y:0});G.set(tabs.map(t=>t.querySelector(".prog")),{scaleX:0});
+    tl=G.timeline({onComplete:()=>show((i+1)%slides.length)});
+    tl.to(img,{y:()=>-dist(),duration:6,ease:"power1.inOut"},.6)
+      .to(prog,{scaleX:1,duration:7.4,ease:"none"},0)
+      .to({},{duration:.4});
+    if(paused||!inView) tl.pause();
+  }
+  function show(i){
+    if(i===cur){scrollTween(i);return;}
+    const prev=slides[cur], next=slides[i];
+    tabs.forEach((t,k)=>{t.setAttribute("aria-selected",String(k===i));t.tabIndex=k===i?0:-1});
+    urltext.textContent=next.dataset.url; urlgo.href="https://"+next.dataset.url;
+    tabsEl.scrollTo({left:Math.max(0,tabs[i].getBoundingClientRect().left-tabsEl.getBoundingClientRect().left+tabsEl.scrollLeft-8),behavior:reduce?"auto":"smooth"});
+    if(G&&!reduce){
+      G.killTweensOf(slides);
+      slides.forEach(s=>{if(s!==next&&s!==prev){s.classList.remove("on");G.set(s,{opacity:0,visibility:"hidden"})}});
+      next.classList.add("on");
+      G.fromTo(next,{opacity:0,scale:1.02,visibility:"visible"},{opacity:1,scale:1,duration:.5,ease:"power2.out"});
+      G.to(prev,{opacity:0,duration:.35,ease:"power1.out",onComplete:()=>{if(prev!==slides[cur]){prev.classList.remove("on");G.set(prev,{visibility:"hidden"})}}});
+    } else {prev.classList.remove("on");next.classList.add("on");}
+    cur=i; scrollTween(i);
+  }
+  tabs.forEach((t,i)=>t.addEventListener("click",()=>show(i)));
+  tabsEl.addEventListener("keydown",e=>{
+    if(e.key!=="ArrowRight"&&e.key!=="ArrowLeft") return;
+    e.preventDefault(); const n=(cur+(e.key==="ArrowRight"?1:-1)+tabs.length)%tabs.length; tabs[n].focus(); show(n);
+  });
+  tabs.forEach((t,k)=>t.tabIndex=k===0?0:-1);
+  if(fine){browser.addEventListener("pointerenter",()=>{paused=true;tl&&tl.pause()});browser.addEventListener("pointerleave",()=>{paused=false;inView&&tl&&tl.resume()});}
+  /* pausa a janela quando ela sai da tela, para não gastar bateria nem pular demos sem ninguém ver */
+  if("IntersectionObserver" in window) new IntersectionObserver(es=>{inView=es[0].isIntersecting;if(!tl)return;if(inView&&!paused)tl.resume();else tl.pause()}).observe(browser);
+  let rz; addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{if(tl&&G&&!reduce){const p=tl.progress();scrollTween(cur);tl.progress(p)}},250)});
+
+  /* ---------- estudos de caso ---------- */
+  const ctabs=[...document.querySelectorAll(".clist button")];
+  const panels=[...document.querySelectorAll(".panel")];
+  function openCase(i){
+    ctabs.forEach((b,k)=>{b.setAttribute("aria-selected",String(k===i));b.tabIndex=k===i?0:-1});
+    panels.forEach((p,k)=>{p.hidden=k!==i});
+    const p=panels[i], top=p.getBoundingClientRect().top;
+    if(top<70) scrollTo({top:top+scrollY-90,behavior:reduce?"auto":"smooth"});
+    if(G&&!reduce){
+      G.fromTo(p,{opacity:0,y:14},{opacity:1,y:0,duration:.45,ease:"power3.out"});
+      G.fromTo(p.querySelector(".stage img"),{clipPath:"inset(0 0 100% 0)"},{clipPath:"inset(0 0 0% 0)",duration:.7,ease:"power3.inOut"});
+      G.fromTo(p.querySelectorAll(".psr div"),{y:16,opacity:0},{y:0,opacity:1,duration:.45,ease:"power3.out",stagger:.06,delay:.15});
+    }
+  }
+  ctabs.forEach((b,i)=>{b.tabIndex=i===0?0:-1;b.addEventListener("click",()=>{if(b.getAttribute("aria-selected")!=="true")openCase(i)})});
+  document.querySelector(".clist").addEventListener("keydown",e=>{
+    const i=ctabs.findIndex(b=>b.getAttribute("aria-selected")==="true");
+    if(e.key==="ArrowDown"||e.key==="ArrowRight"){e.preventDefault();const n=(i+1)%ctabs.length;ctabs[n].focus();openCase(n)}
+    if(e.key==="ArrowUp"||e.key==="ArrowLeft"){e.preventDefault();const n=(i-1+ctabs.length)%ctabs.length;ctabs[n].focus();openCase(n)}
+  });
+  panels.forEach(p=>{
+    const stage=p.querySelector(".stage"), simg=stage.querySelector("img"), cap=p.querySelector(".cap");
+    const th=[...p.querySelectorAll(".thumbs button")];
+    th.forEach((b,k)=>{
+      b.setAttribute("aria-label","Imagem "+(k+1)+" de "+th.length+": "+b.dataset.cap);
+      b.addEventListener("click",()=>{
+        if(b.getAttribute("aria-pressed")==="true") return;
+        th.forEach(x=>x.setAttribute("aria-pressed",String(x===b)));
+        const swap=()=>{simg.src=b.dataset.src;simg.width=+b.dataset.w;simg.height=+b.dataset.h;simg.alt=b.dataset.cap;cap.textContent=b.dataset.cap};
+        if(G&&!reduce){G.to(simg,{opacity:0,duration:.15,overwrite:true,onComplete:()=>{swap();G.to(simg,{opacity:1,duration:.3,overwrite:true})}})}else swap();
+      });
+    });
+    stage.addEventListener("click",()=>openLB(simg.getAttribute("src"),cap.textContent,stage.classList.contains("dark"),+simg.getAttribute("height")>+simg.getAttribute("width")));
+  });
+
+  /* ---------- visualizador ---------- */
+  const lb=document.getElementById("lb"), lbimg=document.getElementById("lbimg"), lbcap=document.getElementById("lbcap"), lbinner=document.getElementById("lbinner");
+  function openLB(src,cap,dark,tall){
+    lbimg.src=src; lbimg.alt=cap; lbcap.textContent=cap;
+    lbinner.classList.toggle("dark",dark); lbinner.classList.toggle("tall",tall); lbinner.scrollTop=0;
+    if(lb.showModal){lb.showModal(); if(G&&!reduce) G.fromTo(lb,{opacity:0,scale:.97},{opacity:1,scale:1,duration:.25,ease:"power2.out"});}
+  }
+  document.getElementById("lbclose").addEventListener("click",()=>lb.close());
+  lb.addEventListener("click",e=>{if(e.target===lb) lb.close()});
+
+  /* ---------- calculadora ---------- */
+  const h=document.getElementById("horas"), pe=document.getElementById("pessoas"), v=document.getElementById("valor");
+  const hO=document.getElementById("horasOut"), pO=document.getElementById("pessoasOut"), hA=document.getElementById("hAno"), rA=document.getElementById("rAno");
+  const fmt=n=>"R$ "+Math.round(n).toLocaleString("pt-BR");
+  const state={h:288,r:7200};
+  v.addEventListener("change",()=>{const n=+v.value; if(!isFinite(n)||n<0) v.value=0; else if(n>1000) v.value=1000; calc()});
+  function calc(){
+    const hours=+h.value*+pe.value*48, money=hours*Math.min(1000,Math.max(0,+v.value||0));
+    hO.textContent=h.value+" h"; pO.textContent=pe.value;
+    if(G&&!reduce){G.to(state,{h:hours,r:money,duration:.5,ease:"power2.out",overwrite:true,onUpdate(){hA.textContent=Math.round(state.h).toLocaleString("pt-BR");rA.textContent=fmt(state.r)}})}
+    else{hA.textContent=hours.toLocaleString("pt-BR");rA.textContent=fmt(money)}
+  }
+  [h,pe,v].forEach(el=>el.addEventListener("input",calc));
+  document.getElementById("calcform").addEventListener("submit",e=>e.preventDefault());
+
+  /* ---------- dúvidas ---------- */
+  document.querySelectorAll(".qa button").forEach(b=>{
+    const ans=document.getElementById(b.getAttribute("aria-controls"));
+    b.addEventListener("click",()=>{
+      const open=b.getAttribute("aria-expanded")==="true";
+      b.setAttribute("aria-expanded",String(!open));
+      if(G&&!reduce){G.to(ans,{height:open?0:"auto",duration:open?.25:.4,ease:open?"power2.out":"power3.out",overwrite:true,onComplete:()=>{if(!open)ans.style.height="auto"}})}
+      else ans.style.height=open?"0":"auto";
+    });
+  });
+
+  /* ---------- copiar contato ---------- */
+  document.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>{
+    const el=document.getElementById(b.dataset.copy), txt=el.textContent.trim();
+    const reset=()=>setTimeout(()=>b.textContent="Copiar",1800);
+    const done=()=>{b.textContent="Copiado";reset()};
+    const fallback=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selecionado";reset()};
+    try{navigator.clipboard.writeText(txt).then(done,fallback)}catch(e){fallback()}
+  }));
+
+  /* ---------- borda que acende ---------- */
+  if(fine) document.querySelectorAll(".pkg").forEach(t=>{
+    t.addEventListener("pointermove",e=>{const r=t.getBoundingClientRect();t.style.setProperty("--x",(e.clientX-r.left)+"px");t.style.setProperty("--y",(e.clientY-r.top)+"px")});
+    t.addEventListener("pointerleave",()=>{t.style.setProperty("--x","-400px");t.style.setProperty("--y","-400px")});
+  });
+
+  /* ---------- animações de entrada e scroll ---------- */
+  const start=()=>{
+    scrollTween(0);
+    if(!G||reduce) return;
+    SplitText.create(".h1",{type:"lines",mask:"lines",autoSplit:true,onSplit(s){return G.from(s.lines,{yPercent:105,duration:1,ease:"power4.out",stagger:.1})}});
+    G.from(".hero .up",{y:18,opacity:0,duration:.8,ease:"power3.out",stagger:.08,delay:.3});
+    document.querySelectorAll(".count").forEach(el=>{const to=+el.dataset.to,o={v:0};G.to(o,{v:to,duration:1.6,ease:"power2.out",delay:.6,onUpdate(){el.textContent=Math.round(o.v).toLocaleString("pt-BR")}})});
+    G.fromTo(".steps .rail i",{scaleX:0},{scaleX:1,ease:"none",scrollTrigger:{trigger:".steps",start:"top 85%",end:"top 45%",scrub:true}});
+    ScrollTrigger.batch(".pkg, .step, .qa",{start:"top 92%",once:true,onEnter:els=>G.from(els,{y:28,duration:.6,ease:"power3.out",stagger:.06})});
+    G.from(".contact .box",{scale:.95,duration:.9,ease:"power3.out",scrollTrigger:{trigger:".contact",start:"top 85%"}});
+  };
+  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(start);
+})();
+</script>
+</body>
+</html>
