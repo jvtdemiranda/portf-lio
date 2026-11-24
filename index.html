@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>João Vitor · Portfólio</title>
-<meta name="description" content="Automação, relatórios e dashboards em Python para pequenos negócios. Projetos com demo, do problema ao resultado.">
+<meta name="description" content="Painel no celular, relatório que chega sozinho e controle de gastos para mercadinhos, lanchonetes e pequenas lojas. Veja um caso real e as demonstrações.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -12,8 +12,8 @@
 <meta name="author" content="João Vitor Torres de Miranda">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:title" content="João Vitor · Automação e dados para pequenos negócios">
-<meta property="og:description" content="Relatórios que se montam sozinhos, dashboards e robôs em Python. Veja os projetos com demo e peça um orçamento.">
+<meta property="og:title" content="João Vitor · Os números do seu negócio na palma da mão">
+<meta property="og:description" content="Painel no celular, relatório que chega sozinho e controle de gastos para pequenos negócios. Veja um caso real e peça um orçamento.">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-visao-geral.png">
 <meta property="og:image:width" content="1800">
 <meta property="og:image:height" content="1140">
@@ -135,6 +135,114 @@ button{font:inherit;color:inherit}
 @media (max-width:980px){.cases{grid-template-columns:minmax(0,1fr)}.clist{position:static;flex-direction:row;overflow-x:auto;scrollbar-width:none}.clist button{flex:none}.clist{-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent);padding-right:40px}}
 @media (max-width:760px){.gallery{grid-template-columns:minmax(0,1fr)}.thumbs{flex-direction:row}.thumbs button{width:96px}.psr{grid-template-columns:minmax(0,1fr)}}
 
+/* caso real: antes/depois, três telas ilustradas, fluxo simples e vantagens */
+.kick{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;color:var(--accent);background:var(--accent-soft);padding:6px 12px;border-radius:999px;margin-bottom:16px}
+.kick::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(240,166,58,.18)}
+.real .sec-h h2{max-width:20ch}
+.ba{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.ba > div{border-radius:20px;padding:clamp(20px,2.6vw,32px)}
+.ba .antes{background:var(--tile)}
+.ba .depois{background:var(--accent-soft);box-shadow:inset 0 0 0 1px rgba(240,166,58,.35)}
+.ba h3{margin:0 0 14px;font-size:13px;font-family:var(--mono);font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+.ba .antes h3{color:var(--muted)}.ba .depois h3{color:var(--accent)}
+.ba ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:16.5px}
+.ba li{display:flex;gap:12px;align-items:flex-start}
+.ba li::before{flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:800;margin-top:1px}
+.ba .antes li::before{content:"✕";background:#2A2E36;color:#C27B7B}
+.ba .depois li::before{content:"✓";background:var(--accent);color:var(--accent-ink)}
+@media (max-width:760px){.ba{grid-template-columns:minmax(0,1fr)}}
+
+.telas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:16px}
+.tela{background:var(--tile);border-radius:20px;padding:22px 20px 24px;display:flex;flex-direction:column;align-items:center;gap:18px;min-width:0}
+.tela .t-h{align-self:stretch}
+.tela .t-h b{display:block;font-size:19px;letter-spacing:-.01em}
+.tela .t-h span{color:var(--muted);font-size:14.5px}
+.tela .t-h .num{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:8px;background:var(--accent);color:var(--accent-ink);font-weight:800;font-size:14px;margin-bottom:10px}
+@media (max-width:980px){.telas{grid-template-columns:minmax(0,1fr)}.tela{flex-direction:row;align-items:center;text-align:left}.tela .t-h{align-self:center;flex:1}}
+@media (max-width:620px){.tela{flex-direction:column}.tela .t-h{align-self:stretch}}
+
+/* aparelho celular ilustrado (tela clara, números de exemplo) */
+.fone{width:min(250px,100%);flex:none;background:#0B0C0F;border-radius:34px;padding:9px;box-shadow:0 0 0 1px #2E333C,0 30px 60px -30px rgba(0,0,0,.9)}
+.fone .scr{position:relative;background:#F6F7F9;color:#1B1E24;border-radius:26px;overflow:hidden;aspect-ratio:9/17.5;padding:30px 14px 14px;display:flex;flex-direction:column;gap:9px;font-size:12px}
+.fone .scr::before{content:"";position:absolute;top:8px;left:50%;width:64px;height:16px;margin-left:-32px;border-radius:10px;background:#0B0C0F}
+.scr .mes{font-size:10px;font-family:var(--mono);color:#6A717C;letter-spacing:.08em;text-transform:uppercase}
+.scr .tit{font-weight:800;font-size:19px;letter-spacing:-.02em;line-height:1}
+.scr .card{background:#fff;border-radius:14px;padding:10px 11px;box-shadow:0 1px 0 rgba(20,24,31,.06),0 6px 16px -10px rgba(20,24,31,.25)}
+.scr .lb{font-size:10.5px;color:#6A717C}
+.scr .val{font-weight:800;font-size:20px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1;white-space:nowrap}
+.scr .meta-bar{height:8px;border-radius:99px;background:#ECEEF2;margin-top:7px;overflow:hidden}
+.scr .meta-bar i{display:block;height:100%;width:74%;border-radius:inherit;background:linear-gradient(90deg,#F0A63A,#E0862A);transform-origin:left}
+.scr .row2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.scr .row2 .val{font-size:15px}
+.scr .bars{display:flex;align-items:flex-end;gap:5px;height:52px;margin-top:6px}
+.scr .bars i{flex:1;border-radius:4px 4px 2px 2px;background:#F3C987;transform-origin:bottom}
+.scr .bars i:last-child{background:#E0862A}
+.scr .up{color:#2F8A57;font-weight:700}
+.scr .alerta{display:flex;gap:9px;align-items:center}
+.scr .alerta b{font-size:12.5px}
+.scr .alerta .pt{flex:none;width:10px;height:10px;border-radius:50%;background:#E0862A;box-shadow:0 0 0 4px rgba(224,134,42,.18)}
+/* formulário de lançar gasto */
+.scr .campo{background:#fff;border-radius:12px;padding:9px 11px;box-shadow:inset 0 0 0 1px #E2E5EA}
+.scr .campo .lb{display:block;margin-bottom:2px}
+.scr .campo b{font-size:17px;font-variant-numeric:tabular-nums}
+.scr .cats{display:flex;flex-wrap:wrap;gap:5px}
+.scr .cats span{background:#fff;border-radius:99px;padding:5px 9px;font-size:11px;box-shadow:inset 0 0 0 1px #E2E5EA}
+.scr .cats span.on{background:#1B1E24;color:#fff;box-shadow:none}
+.scr .lancar{margin-top:auto;background:#E0862A;color:#fff;font-weight:800;text-align:center;border-radius:12px;padding:11px;font-size:13px;letter-spacing:.02em}
+.scr .ok{position:absolute;left:12px;right:12px;bottom:58px;background:#1B1E24;color:#fff;border-radius:12px;padding:9px 11px;font-size:11.5px;display:flex;gap:7px;align-items:center;opacity:0}
+.scr .ok::before{content:"✓";display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#2F8A57;font-weight:800;font-size:11px;flex:none}
+/* e-mail ilustrado */
+.mail{width:min(300px,100%);flex:none;background:#F6F7F9;color:#1B1E24;border-radius:18px;overflow:hidden;box-shadow:0 0 0 1px #2E333C,0 30px 60px -30px rgba(0,0,0,.9);font-size:12.5px}
+.mail .m-top{background:#fff;padding:12px 14px;border-bottom:1px solid #E6E8EC;display:flex;gap:10px;align-items:center}
+.mail .av{width:30px;height:30px;border-radius:50%;background:#F0A63A;color:#1A1206;display:grid;place-items:center;font-weight:800;font-size:12px;flex:none}
+.mail .de{font-weight:700;font-size:12.5px}.mail .as{color:#6A717C;font-size:11.5px}
+.mail .m-body{padding:14px;display:flex;flex-direction:column;gap:9px}
+.mail .m-body h5{margin:0;font-size:15px;letter-spacing:-.01em}
+.mail .linha{display:flex;justify-content:space-between;align-items:center;background:#fff;border-radius:10px;padding:8px 10px;font-variant-numeric:tabular-nums}
+.mail .linha b{font-size:14px}
+.mail .linha.sobra{background:#1B1E24;color:#fff}
+.mail .ideia{font-size:11.5px;color:#4A515C;border-left:3px solid #F0A63A;padding:2px 0 2px 9px}
+.mail .pdf{align-self:flex-start;display:inline-flex;gap:6px;align-items:center;background:#fff;border-radius:8px;padding:6px 9px;font-size:11px;font-weight:600;box-shadow:inset 0 0 0 1px #E2E5EA}
+.mail .pdf::before{content:"PDF";background:#D9534F;color:#fff;font-size:9px;font-weight:800;border-radius:4px;padding:2px 4px}
+.ilus{margin:12px 0 0;font-size:13px;color:var(--muted);text-align:center}
+
+/* fluxo: de onde vêm os números e para onde vão */
+.fluxo{margin-top:16px;background:var(--tile);border-radius:20px;padding:clamp(22px,3vw,40px)}
+.fluxo > h3{margin:0;font-size:clamp(22px,2.2vw,28px);letter-spacing:-.02em}
+.fluxo > p{margin:6px 0 0;color:var(--muted)}
+.rio{display:grid;grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr) 56px minmax(0,1fr);align-items:center;margin-top:28px}
+.col{display:flex;flex-direction:column;gap:10px}
+.no{display:flex;gap:12px;align-items:center;background:var(--tile-2);border-radius:14px;padding:13px 14px}
+.no .ic{flex:none;width:38px;height:38px;border-radius:11px;background:#2E333C;display:grid;place-items:center;font-size:19px}
+.no b{display:block;font-size:15px;line-height:1.2}
+.no span{font-size:13px;color:var(--muted)}
+.no.hub{background:var(--accent);color:var(--accent-ink);padding:20px 16px;flex-direction:column;text-align:center;gap:8px}
+.no.hub .ic{background:rgba(26,18,6,.12);width:48px;height:48px;font-size:24px}
+.no.hub b{font-size:17px}.no.hub span{color:var(--accent-ink);opacity:.8}
+.seta{position:relative;height:2px;background:var(--line);margin:0 6px}
+.seta::after{content:"";position:absolute;right:-2px;top:-4px;border:5px solid transparent;border-left:7px solid var(--line);border-right:0}
+.seta i{position:absolute;top:-3px;left:0;width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);opacity:0}
+@media (prefers-reduced-motion:no-preference){.rio.vivo .seta i{animation:corre 1.8s linear infinite}.rio.vivo .seta i:nth-child(2){animation-delay:.6s}.rio.vivo .seta i:nth-child(3){animation-delay:1.2s}}
+@keyframes corre{0%{left:0;opacity:0}15%{opacity:1}85%{opacity:1}100%{left:calc(100% - 8px);opacity:0}}
+@media (max-width:860px){
+  .rio{grid-template-columns:minmax(0,1fr)}
+  .seta{width:2px;height:34px;margin:6px auto}
+  .seta::after{right:auto;left:-4px;top:auto;bottom:-2px;border:5px solid transparent;border-top:7px solid var(--line);border-bottom:0}
+  .seta i{left:-3px;top:0}
+  .rio.vivo .seta i{animation-name:corre-v}
+}
+@keyframes corre-v{0%{top:0;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:calc(100% - 8px);opacity:0}}
+
+.vant{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:16px}
+.vant div{background:var(--tile);border-radius:18px;padding:20px}
+.vant .ic{font-size:24px;line-height:1}
+.vant b{display:block;margin-top:12px;font-size:17px;letter-spacing:-.01em;line-height:1.2}
+.vant p{margin:6px 0 0;color:var(--muted);font-size:14.5px}
+@media (max-width:1080px){.vant{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.vant{grid-template-columns:minmax(0,1fr)}}
+.real-cta{margin-top:16px;display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;background:var(--tile);border-radius:20px;padding:clamp(20px,2.6vw,32px)}
+.real-cta p{margin:0;font-size:clamp(19px,1.8vw,24px);font-weight:700;letter-spacing:-.015em;max-width:34ch}
+
 /* calculadora */
 .calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
 .calc .in,.calc .out{background:var(--tile);border-radius:20px;padding:clamp(22px,3vw,40px)}
@@ -250,7 +358,8 @@ dialog.lb::backdrop{background:rgba(8,9,11,.86)}
   <div class="wrap">
     <a class="brand" href="#topo">João Vitor<span>.</span></a>
     <nav class="links" aria-label="Principal">
-      <a href="#projetos">Projetos</a>
+      <a href="#caso-real">Caso real</a>
+      <a class="opt" href="#projetos">Demonstrações</a>
       <a class="opt" href="#servicos">Serviços</a>
       <a class="opt" href="#processo">Como funciona</a>
       <a class="opt" href="#duvidas">Dúvidas</a>
@@ -264,9 +373,9 @@ dialog.lb::backdrop{background:rgba(8,9,11,.86)}
     <div class="wrap">
       <div>
         <span class="avail up">Aberto a novos projetos</span>
-        <h1 class="h1">Automação e dados para <span>pequenos negócios.</span></h1>
-        <p class="up">Relatórios que se montam sozinhos, dashboards e robôs em Python para sua equipe parar de copiar e colar.</p>
-        <div class="ctas up"><a class="btn" href="#contato">Pedir orçamento</a><a class="btn btn--soft" href="#projetos">Ver projetos</a></div>
+        <h1 class="h1">Os números do seu negócio <span>na palma da mão.</span></h1>
+        <p class="up">Painel no celular, relatório que chega sozinho e controle de gastos para mercadinhos, lanchonetes e pequenas lojas. Menos tempo na planilha, mais clareza para decidir.</p>
+        <div class="ctas up"><a class="btn" href="#contato">Pedir orçamento</a><a class="btn btn--soft" href="#caso-real">Ver caso real</a></div>
       </div>
       <div class="browser up" id="browser">
         <div class="bar">
@@ -287,10 +396,121 @@ dialog.lb::backdrop{background:rgba(8,9,11,.86)}
     </div>
     <div class="proof">
       <div class="wrap">
-        <div><b class="count" data-to="5">5</b><span>demos no ar para você testar</span></div>
-        <div><b class="count" data-to="26242">26.242</b><span>preços da Anvisa conferidos por atualização</span></div>
-        <div><b>3 → 1</b><span>planilhas de sistemas diferentes viram um relatório</span></div>
-        <div><b>100%</b><span>do código aberto no GitHub</span></div>
+        <div><b>1</b><span>loja real usando o painel todo dia</span></div>
+        <div><b>3 → 1</b><span>sistemas diferentes viram um painel só</span></div>
+        <div><b>R$ 0</b><span>de mensalidade de sistema no caso real</span></div>
+        <div><b class="count" data-to="5">5</b><span>demonstrações no ar para você testar</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec real" id="caso-real">
+    <div class="wrap">
+      <div class="sec-h">
+        <div>
+          <span class="kick">Caso real · cliente de verdade</span>
+          <h2>Uma loja que passou a ver os próprios números no celular</h2>
+        </div>
+        <p>Loja online de beleza e suplementos, tocada pela dona e por um sócio. O nome e os números dela ficam em sigilo. As telas abaixo são ilustrações com valores de exemplo.</p>
+      </div>
+
+      <div class="ba">
+        <div class="antes">
+          <h3>Antes</h3>
+          <ul>
+            <li>As vendas ficavam num sistema, as notas e o estoque em outro, e os gastos numa planilha feita à mão.</li>
+            <li>Para saber quanto sobrou no mês, alguém tinha que juntar tudo e fazer a conta.</li>
+            <li>Dona e sócio nem sempre olhavam para os mesmos números.</li>
+          </ul>
+        </div>
+        <div class="depois">
+          <h3>Depois</h3>
+          <ul>
+            <li>Um painel que se atualiza sozinho todo dia, e abre no celular.</li>
+            <li>O resumo do mês chega por e-mail, com PDF, sem ninguém pedir.</li>
+            <li>Gasto novo é lançado pelo celular em poucos toques e já entra na conta.</li>
+            <li>Os dois veem a mesma informação, cada um com o seu login.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="telas" id="telas">
+        <div class="tela">
+          <div class="t-h"><span class="num">1</span><b>Painel no celular</b><span>Quanto vendeu, quanto falta para a meta e como foi cada dia.</span></div>
+          <div class="fone" aria-hidden="true">
+            <div class="scr">
+              <div><div class="mes">Visão do mês</div><div class="tit">Novembro</div></div>
+              <div class="card"><div class="lb">Vendas do mês</div><div class="val" data-conta="18420" data-pre="R$ ">R$ 18.420</div><div class="meta-bar"><i></i></div><div class="lb" style="margin-top:5px">74% da meta de R$ 25.000</div></div>
+              <div class="row2">
+                <div class="card"><div class="lb">Pedidos</div><div class="val" data-conta="192">192</div></div>
+                <div class="card"><div class="lb">Por pedido</div><div class="val" data-conta="96" data-pre="R$ ">R$ 96</div></div>
+              </div>
+              <div class="card"><div class="lb">Últimos 7 dias <span class="up">▲ 12%</span></div><div class="bars"><i style="height:45%"></i><i style="height:62%"></i><i style="height:38%"></i><i style="height:70%"></i><i style="height:55%"></i><i style="height:82%"></i><i style="height:94%"></i></div></div>
+              <div class="card alerta"><span class="pt"></span><div><b>Estoque baixo</b><div class="lb">3 produtos acabam esta semana</div></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tela">
+          <div class="t-h"><span class="num">2</span><b>Relatório no e-mail</b><span>Todo mês chega um resumo em linguagem simples, com ideias para o mês seguinte.</span></div>
+          <div class="mail" aria-hidden="true">
+            <div class="m-top"><span class="av">R</span><div><div class="de">Relatório da loja</div><div class="as">Seu mês em 1 minuto · PDF anexo</div></div></div>
+            <div class="m-body">
+              <h5>Novembro fechou no azul</h5>
+              <div class="linha"><span>Entrou</span><b>R$ 18.420</b></div>
+              <div class="linha"><span>Saiu</span><b>R$ 12.960</b></div>
+              <div class="linha sobra"><span>Sobrou</span><b>R$ 5.460</b></div>
+              <div class="ideia">O produto mais vendido ficou com estoque baixo. Vale repor antes de dezembro.</div>
+              <span class="pdf">relatorio-novembro.pdf</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tela">
+          <div class="t-h"><span class="num">3</span><b>Lançar um gasto</b><span>Frete, embalagem, anúncio: escolhe, digita o valor e pronto.</span></div>
+          <div class="fone" aria-hidden="true">
+            <div class="scr">
+              <div><div class="mes">Novo lançamento</div><div class="tit">Gasto</div></div>
+              <div class="campo"><span class="lb">Valor</span><b class="digita">R$ 86,40</b></div>
+              <div><div class="lb" style="margin-bottom:5px">Tipo de gasto</div><div class="cats"><span class="on">Frete</span><span>Embalagem</span><span>Anúncios</span><span>Brindes</span><span>Estoque</span></div></div>
+              <div class="campo"><span class="lb">Quando</span><b style="font-size:14px">Hoje</b></div>
+              <div class="ok">Lançado! Já aparece no painel.</div>
+              <div class="lancar">Lançar</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="ilus">Ilustrações com números de exemplo. As telas reais usam a marca e os dados da loja.</p>
+
+      <div class="fluxo">
+        <h3>Como funciona, sem complicação</h3>
+        <p>Os números saem de onde a loja já trabalha. Ninguém precisa digitar duas vezes.</p>
+        <div class="rio" id="rio">
+          <div class="col">
+            <div class="no"><span class="ic" aria-hidden="true">🛒</span><div><b>Loja online</b><span>as vendas e os pedidos</span></div></div>
+            <div class="no"><span class="ic" aria-hidden="true">📦</span><div><b>Sistema de notas</b><span>o estoque e os custos</span></div></div>
+            <div class="no"><span class="ic" aria-hidden="true">📱</span><div><b>Gastos do dia a dia</b><span>lançados pelo celular</span></div></div>
+          </div>
+          <div class="seta" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="col"><div class="no hub"><span class="ic" aria-hidden="true">🗂️</span><b>Planilha Google da própria loja</b><span>junta tudo sozinha, todo dia de manhã</span></div></div>
+          <div class="seta" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="col">
+            <div class="no"><span class="ic" aria-hidden="true">📊</span><div><b>Painel</b><span>no celular e no computador</span></div></div>
+            <div class="no"><span class="ic" aria-hidden="true">✉️</span><div><b>Relatório no e-mail</b><span>todo mês, com PDF</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vant">
+        <div><span class="ic" aria-hidden="true">💸</span><b>Sem mensalidade de sistema</b><p>Tudo roda na conta Google da própria loja, com ferramentas gratuitas.</p></div>
+        <div><span class="ic" aria-hidden="true">📲</span><b>Feito para o celular</b><p>A dona e o sócio usam no dia a dia, de onde estiverem.</p></div>
+        <div><span class="ic" aria-hidden="true">🔒</span><b>Só entra quem foi liberado</b><p>Cada pessoa entra com a própria conta Google. Mais ninguém vê.</p></div>
+        <div><span class="ic" aria-hidden="true">🤝</span><b>Do jeito que a dona entende</b><p>Montado junto com ela, com as palavras e o visual que ela queria.</p></div>
+      </div>
+
+      <div class="real-cta">
+        <p>Quer algo assim para o seu mercadinho, lanchonete ou loja?</p>
+        <a class="btn" href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20o%20caso%20real%20no%20seu%20portf%C3%B3lio%20e%20queria%20algo%20parecido%20para%20o%20meu%20neg%C3%B3cio." target="_blank" rel="noopener">Conversar no WhatsApp</a>
       </div>
     </div>
   </section>
@@ -298,21 +518,21 @@ dialog.lb::backdrop{background:rgba(8,9,11,.86)}
   <section class="sec" id="projetos">
     <div class="wrap">
       <div class="sec-h">
-        <h2>Projetos, do problema ao resultado</h2>
-        <p>Projetos de portfólio feitos com dados de exemplo, mas com os problemas que aparecem em empresas de verdade. Abra as imagens para ver em tamanho real.</p>
+        <h2>Mais exemplos para você testar</h2>
+        <p>Demonstrações com dados de exemplo, feitas a partir de problemas que aparecem todo dia em negócios de verdade. Toque nas imagens para ver maior.</p>
       </div>
       <div class="cases">
         <div class="clist" role="tablist" aria-label="Projetos">
-          <button type="button" role="tab" aria-selected="true" aria-controls="p0" id="t0"><strong>Monitor de Preços CMED</strong><span>Farmácias · web scraping</span></button>
-          <button type="button" role="tab" aria-selected="false" aria-controls="p1" id="t1"><strong>Relatório de Vendas</strong><span>Varejo · automação</span></button>
-          <button type="button" role="tab" aria-selected="false" aria-controls="p2" id="t2"><strong>Painel de Tráfego Pago</strong><span>E-commerce · dashboard</span></button>
-          <button type="button" role="tab" aria-selected="false" aria-controls="p3" id="t3"><strong>Financeiro PME</strong><span>Serviços · dados</span></button>
-          <button type="button" role="tab" aria-selected="false" aria-controls="p4" id="t4"><strong>Vic &amp; Jão</strong><span>Restaurante · bot com IA</span></button>
+          <button type="button" role="tab" aria-selected="true" aria-controls="p0" id="t0"><strong>Monitor de Preços CMED</strong><span>Farmácias · conferência de preços</span></button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="p1" id="t1"><strong>Relatório de Vendas</strong><span>Lojas · relatório do mês</span></button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="p2" id="t2"><strong>Painel de Tráfego Pago</strong><span>Loja online · anúncios</span></button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="p3" id="t3"><strong>Financeiro PME</strong><span>Qualquer negócio · caixa</span></button>
+          <button type="button" role="tab" aria-selected="false" aria-controls="p4" id="t4"><strong>Vic &amp; Jão</strong><span>Restaurante · WhatsApp</span></button>
         </div>
 
         <div class="panels">
           <article class="panel" id="p0" role="tabpanel" aria-labelledby="t0">
-            <div class="p-top"><div><h3>Monitor de Preços CMED</h3><div class="label">Projeto de portfólio · lista oficial real da Anvisa</div></div><div class="p-acts"><a class="btn" href="https://monitor-precos-cmed.vercel.app" target="_blank" rel="noopener">Abrir demo ↗</a><a class="btn btn--soft" href="https://github.com/jvtdemiranda/monitor-precos-cmed" target="_blank" rel="noopener">Código</a></div></div>
+            <div class="p-top"><div><h3>Monitor de Preços CMED</h3><div class="label">Demonstração · lista oficial real da Anvisa</div></div><div class="p-acts"><a class="btn" href="https://monitor-precos-cmed.vercel.app" target="_blank" rel="noopener">Abrir demonstração ↗</a><a class="btn btn--soft" href="https://github.com/jvtdemiranda/monitor-precos-cmed" target="_blank" rel="noopener">Código</a></div></div>
             <div class="gallery">
               <button type="button" class="stage" aria-label="Ampliar imagem"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/monitor-precos-cmed@3d171e7f97d78e7d7a2573e6ebc0629098f3610f/docs/mudancas.png" alt="Preços que mudaram desde a lista anterior, com 6 casos fora do normal destacados" width="1497" height="1385"><span class="zoom">Ampliar</span></button>
               <div class="thumbs">
@@ -324,14 +544,14 @@ dialog.lb::backdrop{background:rgba(8,9,11,.86)}
             <p class="cap">O que mudou desde a lista anterior. Casos fora do normal ficam em destaque para conferir.</p>
             <div class="psr">
               <div><h4>Problema</h4><p>A farmácia não pode vender acima do preço máximo definido pela Anvisa, e a lista oficial tem 26 mil itens e muda quase todo mês.</p></div>
-              <div><h4>O que eu fiz</h4><p>Robô que baixa a lista sozinho, limpa os dados, compara com a anterior e publica um conferidor.</p></div>
+              <div><h4>O que eu fiz</h4><p>Um robô que baixa a lista sozinho, compara com a anterior e mostra o que mudou numa página simples.</p></div>
               <div><h4>Resultado</h4><p>Na última lista: 41 preços mudaram, 6 fora do normal sinalizados e 306 itens novos, sem ninguém abrir a planilha.</p></div>
             </div>
-            <div class="stack"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">web scraping</span><span class="chip">GitHub Actions</span></div>
+            <div class="stack"><span class="chip">Atualiza sozinho</span><span class="chip">Página web</span><span class="chip">Planilha Excel</span></div>
           </article>
 
           <article class="panel" id="p1" role="tabpanel" aria-labelledby="t1" hidden>
-            <div class="p-top"><div><h3>Relatório de Vendas automático</h3><div class="label">Projeto de portfólio · dados de exemplo de 3 lojas</div></div><div class="p-acts"><a class="btn" href="https://automacao-relatorio-vendas.vercel.app" target="_blank" rel="noopener">Abrir demo ↗</a><a class="btn btn--soft" href="https://github.com/jvtdemiranda/automacao-relatorio-vendas" target="_blank" rel="noopener">Código</a></div></div>
+            <div class="p-top"><div><h3>Relatório de Vendas automático</h3><div class="label">Demonstração · dados de exemplo de 3 lojas</div></div><div class="p-acts"><a class="btn" href="https://automacao-relatorio-vendas.vercel.app" target="_blank" rel="noopener">Abrir demonstração ↗</a><a class="btn btn--soft" href="https://github.com/jvtdemiranda/automacao-relatorio-vendas" target="_blank" rel="noopener">Código</a></div></div>
             <div class="gallery">
               <button type="button" class="stage" aria-label="Ampliar imagem"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/automacao-relatorio-vendas@11cdd93f96349f961725ba24c2999a1f10fabc6b/docs/pagina.png" alt="Relatório do mês com faturamento de cada loja contra a meta" width="1600" height="1163" loading="lazy"><span class="zoom">Ampliar</span></button>
               <div class="thumbs">
@@ -343,65 +563,65 @@ dialog.lb::backdrop{background:rgba(8,9,11,.86)}
             <p class="cap">Relatório do mês na web: cada loja contra a meta e contra o mês anterior.</p>
             <div class="psr">
               <div><h4>Problema</h4><p>Todo fim de mês alguém junta à mão as planilhas das lojas, cada uma exportada de um sistema diferente.</p></div>
-              <div><h4>O que eu fiz</h4><p>Robô que lê os 3 formatos, corrige os problemas e gera o relatório em PDF, Excel e web.</p></div>
+              <div><h4>O que eu fiz</h4><p>Um robô que lê as 3 planilhas, corrige os erros e monta o relatório em PDF, Excel e página web.</p></div>
               <div><h4>Resultado</h4><p>957 vendas consolidadas. Encontrou e tratou 10 linhas duplicadas, 7 devoluções e um arquivo com acentuação quebrada.</p></div>
             </div>
-            <div class="stack"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">openpyxl</span><span class="chip">reportlab</span></div>
+            <div class="stack"><span class="chip">PDF</span><span class="chip">Planilha Excel</span><span class="chip">Página web</span></div>
           </article>
 
           <article class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
-            <div class="p-top"><div><h3>Painel de Tráfego Pago</h3><div class="label">Projeto de portfólio · loja fictícia, dados de exemplo</div></div><div class="p-acts"><a class="btn" href="https://dashboard-trafego-pago-seven.vercel.app" target="_blank" rel="noopener">Abrir demo ↗</a><a class="btn btn--soft" href="https://github.com/jvtdemiranda/dashboard-trafego-pago" target="_blank" rel="noopener">Código</a></div></div>
+            <div class="p-top"><div><h3>Painel de Tráfego Pago</h3><div class="label">Demonstração · loja fictícia, dados de exemplo</div></div><div class="p-acts"><a class="btn" href="https://dashboard-trafego-pago-seven.vercel.app" target="_blank" rel="noopener">Abrir demonstração ↗</a><a class="btn btn--soft" href="https://github.com/jvtdemiranda/dashboard-trafego-pago" target="_blank" rel="noopener">Código</a></div></div>
             <div class="gallery">
               <button type="button" class="stage" aria-label="Ampliar imagem"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-visao-geral.png" alt="Resultado do período e funil de conversão" width="1600" height="1013" loading="lazy"><span class="zoom">Ampliar</span></button>
               <div class="thumbs">
-                <button type="button" aria-pressed="true" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-visao-geral.png" data-cap="Resultado do período e funil, com o ROAS mínimo calculado pela margem do produto." data-w="1600" data-h="1013"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-visao-geral.png" alt="" loading="lazy"></button>
+                <button type="button" aria-pressed="true" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-visao-geral.png" data-cap="Quanto foi investido em anúncio, quanto voltou em vendas e o mínimo para dar lucro." data-w="1600" data-h="1013"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-visao-geral.png" alt="" loading="lazy"></button>
                 <button type="button" aria-pressed="false" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-anuncios.png" data-cap="Cada anúncio com a decisão sugerida: escalar, manter ou pausar." data-w="1600" data-h="887"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-anuncios.png" alt="" loading="lazy"></button>
-                <button type="button" aria-pressed="false" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-meta-x-loja.png" data-cap="O que o Meta reporta comparado com os pedidos reais da loja." data-w="1600" data-h="429"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-meta-x-loja.png" alt="" loading="lazy"></button>
+                <button type="button" aria-pressed="false" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-meta-x-loja.png" data-cap="O que o Instagram/Facebook diz que vendeu, comparado com os pedidos reais da loja." data-w="1600" data-h="429"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-trafego-pago@057318e3a579e69cc3c7fa2f9834b5ba19e9c903/docs/screenshot-meta-x-loja.png" alt="" loading="lazy"></button>
               </div>
             </div>
-            <p class="cap">Resultado do período e funil, com o ROAS mínimo calculado pela margem do produto.</p>
+            <p class="cap">Quanto foi investido em anúncio, quanto voltou em vendas e o mínimo para dar lucro.</p>
             <div class="psr">
-              <div><h4>Problema</h4><p>O relatório do Meta Ads mostra métricas, mas não diz se o anúncio deixa dinheiro depois do custo do produto.</p></div>
-              <div><h4>O que eu fiz</h4><p>Painel que cruza o Meta Ads com os pedidos reais (via UTM) e considera a margem da loja.</p></div>
-              <div><h4>Resultado</h4><p>No exemplo: ROAS de 3,91x contra um mínimo de 2,86x, e uma decisão clara para cada um dos anúncios.</p></div>
+              <div><h4>Problema</h4><p>O relatório de anúncios do Instagram e Facebook mostra muitos números, mas não diz se o anúncio está dando lucro.</p></div>
+              <div><h4>O que eu fiz</h4><p>Um painel que junta os anúncios com os pedidos reais da loja e já desconta o custo do produto.</p></div>
+              <div><h4>Resultado</h4><p>No exemplo, cada R$ 1 em anúncio voltou R$ 3,91 em vendas, e cada anúncio ganhou uma indicação clara: aumentar, manter ou pausar.</p></div>
             </div>
-            <div class="stack"><span class="chip">Python</span><span class="chip">JavaScript</span><span class="chip">Meta Ads</span></div>
+            <div class="stack"><span class="chip">Instagram e Facebook</span><span class="chip">Página web</span></div>
           </article>
 
           <article class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
-            <div class="p-top"><div><h3>Dashboard Financeiro PME</h3><div class="label">Projeto de portfólio · 200 transações de exemplo</div></div><div class="p-acts"><a class="btn" href="https://dashboard-financeiro-pme.vercel.app" target="_blank" rel="noopener">Abrir demo ↗</a><a class="btn btn--soft" href="https://github.com/jvtdemiranda/dashboard-financeiro-PME" target="_blank" rel="noopener">Código</a></div></div>
+            <div class="p-top"><div><h3>Dashboard Financeiro PME</h3><div class="label">Demonstração · 200 lançamentos de exemplo</div></div><div class="p-acts"><a class="btn" href="https://dashboard-financeiro-pme.vercel.app" target="_blank" rel="noopener">Abrir demonstração ↗</a><a class="btn btn--soft" href="https://github.com/jvtdemiranda/dashboard-financeiro-PME" target="_blank" rel="noopener">Código</a></div></div>
             <div class="gallery">
               <button type="button" class="stage" aria-label="Ampliar imagem"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-resumo.png" alt="Resumo financeiro com recebido, pago, saldo e fluxo de caixa mensal" width="780" height="1688" loading="lazy"><span class="zoom">Ampliar</span></button>
               <div class="thumbs">
                 <button type="button" aria-pressed="true" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-resumo.png" data-cap="Resumo: recebido, pago, saldo de caixa e o fluxo mês a mês." data-w="780" data-h="1688"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-resumo.png" alt="" loading="lazy"></button>
                 <button type="button" aria-pressed="false" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-contas.png" data-cap="Contas a pagar e a receber, com o que está atrasado." data-w="780" data-h="1688"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-contas.png" alt="" loading="lazy"></button>
-                <button type="button" aria-pressed="false" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-dre.png" data-cap="DRE simplificado, calculado a partir do export bruto do sistema." data-w="780" data-h="1688"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-dre.png" alt="" loading="lazy"></button>
+                <button type="button" aria-pressed="false" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-dre.png" data-cap="O resultado do mês, montado a partir do que o sistema exporta." data-w="780" data-h="1688"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/dashboard-financeiro-PME@c87db8e83625b0eb4067b435cab678ca3c0d5704/docs/screenshot-dre.png" alt="" loading="lazy"></button>
               </div>
             </div>
             <p class="cap">Resumo: recebido, pago, saldo de caixa e o fluxo mês a mês.</p>
             <div class="psr">
-              <div><h4>Problema</h4><p>O export do sistema financeiro chega com datas em formatos diferentes e erros de digitação.</p></div>
-              <div><h4>O que eu fiz</h4><p>Tratamento dos dados em Python e um painel com fluxo de caixa, contas e DRE, mais a versão em Excel.</p></div>
-              <div><h4>Resultado</h4><p>200 transações viram 4 telas que respondem quanto entrou, quanto saiu e o que está pendente.</p></div>
+              <div><h4>Problema</h4><p>A planilha que o sistema financeiro exporta vem bagunçada, com datas diferentes e erros de digitação.</p></div>
+              <div><h4>O que eu fiz</h4><p>Organizei os dados e montei um painel com entradas e saídas, contas a pagar e receber e o resultado do mês, também em Excel.</p></div>
+              <div><h4>Resultado</h4><p>200 lançamentos viram 4 telas que respondem quanto entrou, quanto saiu e o que está pendente.</p></div>
             </div>
-            <div class="stack"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">openpyxl</span><span class="chip">Excel</span></div>
+            <div class="stack"><span class="chip">Funciona no celular</span><span class="chip">Planilha Excel</span></div>
           </article>
 
           <article class="panel" id="p4" role="tabpanel" aria-labelledby="t4" hidden>
-            <div class="p-top"><div><h3>Vic &amp; Jão, chatbot de WhatsApp</h3><div class="label">Projeto de portfólio · restaurante simulado</div></div><div class="p-acts"><a class="btn" href="https://github.com/jvtdemiranda/vic-e-jao-whatsapp-bot" target="_blank" rel="noopener">Ver no GitHub ↗</a></div></div>
+            <div class="p-top"><div><h3>Vic &amp; Jão, chatbot de WhatsApp</h3><div class="label">Demonstração · restaurante simulado</div></div><div class="p-acts"><a class="btn" href="https://github.com/jvtdemiranda/vic-e-jao-whatsapp-bot" target="_blank" rel="noopener">Ver no GitHub ↗</a></div></div>
             <div class="gallery">
-              <button type="button" class="stage dark" aria-label="Ampliar imagem"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/vic-e-jao-whatsapp-bot@c560295664de516ae00558bc5e608749c8ab160a/fluxo-n8n.png" alt="Fluxo do chatbot no n8n" width="1600" height="816" loading="lazy"><span class="zoom">Ampliar</span></button>
+              <button type="button" class="stage dark" aria-label="Ampliar imagem"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/vic-e-jao-whatsapp-bot@c560295664de516ae00558bc5e608749c8ab160a/fluxo-n8n.png" alt="Bastidores do atendimento automático" width="1600" height="816" loading="lazy"><span class="zoom">Ampliar</span></button>
               <div class="thumbs">
-                <button type="button" class="dark" aria-pressed="true" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/vic-e-jao-whatsapp-bot@c560295664de516ae00558bc5e608749c8ab160a/fluxo-n8n.png" data-cap="O fluxo no n8n: recebe a mensagem, busca o histórico, chama a IA e responde." data-w="1600" data-h="816" data-dark="1"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/vic-e-jao-whatsapp-bot@c560295664de516ae00558bc5e608749c8ab160a/fluxo-n8n.png" alt="" loading="lazy"></button>
+                <button type="button" class="dark" aria-pressed="true" data-src="https://cdn.jsdelivr.net/gh/jvtdemiranda/vic-e-jao-whatsapp-bot@c560295664de516ae00558bc5e608749c8ab160a/fluxo-n8n.png" data-cap="Os bastidores: recebe a mensagem, lembra da conversa e responde sozinho." data-w="1600" data-h="816" data-dark="1"><img src="https://cdn.jsdelivr.net/gh/jvtdemiranda/vic-e-jao-whatsapp-bot@c560295664de516ae00558bc5e608749c8ab160a/fluxo-n8n.png" alt="" loading="lazy"></button>
               </div>
             </div>
-            <p class="cap">O fluxo no n8n: recebe a mensagem, busca o histórico, chama a IA e responde.</p>
+            <p class="cap">Os bastidores: recebe a mensagem, lembra da conversa e responde sozinho.</p>
             <div class="psr">
               <div><h4>Problema</h4><p>O restaurante perde pedidos quando demora para responder no WhatsApp nos horários de pico.</p></div>
-              <div><h4>O que eu fiz</h4><p>Bot que atende do cardápio ao pedido, com IA nas respostas e histórico salvo no Google Sheets.</p></div>
-              <div><h4>Resultado</h4><p>O cliente escolhe o prato, a entrega e o pagamento na conversa, e o bot lembra do que já foi dito.</p></div>
+              <div><h4>O que eu fiz</h4><p>Um atendente automático que mostra o cardápio e anota o pedido, e guarda tudo numa planilha Google.</p></div>
+              <div><h4>Resultado</h4><p>O cliente escolhe o prato, a entrega e o pagamento na conversa, a qualquer hora, e o atendente lembra do que já foi dito.</p></div>
             </div>
-            <div class="stack"><span class="chip">n8n</span><span class="chip">Evolution API</span><span class="chip">Llama via Groq</span><span class="chip">Docker</span></div>
+            <div class="stack"><span class="chip">WhatsApp</span><span class="chip">Planilha Google</span><span class="chip">Inteligência artificial</span></div>
           </article>
         </div>
       </div>
@@ -412,7 +632,7 @@ dialog.lb::backdrop{background:rgba(8,9,11,.86)}
     <div class="wrap">
       <div class="sec-h">
         <h2>Quanto custa fazer isso à mão?</h2>
-        <p>Uma conta rápida para ver o tamanho do tempo gasto hoje com planilha e copia e cola.</p>
+        <p>Uma conta rápida para ver quanto tempo vai embora hoje com caderno, planilha e conta feita à mão.</p>
       </div>
       <div class="calc">
         <form class="in" id="calcform">
@@ -428,7 +648,7 @@ dialog.lb::backdrop{background:rgba(8,9,11,.86)}
             <label for="valor">Custo da hora de trabalho</label>
             <div class="money"><span>R$</span><input id="valor" type="number" inputmode="decimal" min="0" max="1000" step="any" value="25"></div>
           </div>
-          <p class="hint">Exemplos: juntar planilhas de lojas, conferir preços, montar relatório do mês, responder às mesmas perguntas no WhatsApp.</p>
+          <p class="hint">Exemplos: fechar o caixa do dia, contar o estoque, somar as vendas do balcão e do delivery, responder "qual o cardápio?" no WhatsApp.</p>
         </form>
         <div class="out" aria-live="polite">
           <div class="pair">
@@ -446,36 +666,36 @@ dialog.lb::backdrop{background:rgba(8,9,11,.86)}
     <div class="wrap">
       <div class="sec-h">
         <h2>O que eu entrego</h2>
-        <p>Cada projeto sai com o código, instruções de uso e um período de ajustes depois da entrega.</p>
+        <p>Cada projeto sai com explicação simples de como usar e um período de ajustes depois da entrega.</p>
       </div>
       <div class="pkgs">
         <div class="pkg">
-          <h3>Relatório automático</h3>
-          <p class="for">Para quem junta planilhas toda semana ou todo mês.</p>
-          <ul><li>Leitura das suas planilhas, do jeito que elas são</li><li>Relatório em PDF, Excel ou web</li><li>Aviso quando um arquivo vem com problema</li></ul>
-          <span class="ex">Ex.: Relatório de Vendas</span>
+          <h3>Painel no celular</h3>
+          <p class="for">Para quem quer saber como está o negócio sem abrir planilha.</p>
+          <ul><li>Vendas do dia e do mês, meta e estoque</li><li>Abre no celular e no computador</li><li>Atualiza sozinho com os seus dados</li></ul>
+          <span class="ex">Ex.: caso real, Financeiro</span>
+          <div class="meta"><span>Prazo e valor sob medida</span><a href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento%20de%20Painel%20no%20celular." target="_blank" rel="noopener">Pedir orçamento</a></div>
+        </div>
+        <div class="pkg">
+          <h3>Controle de gastos e caixa</h3>
+          <p class="for">Para quem anota gasto no caderno ou esquece de anotar.</p>
+          <ul><li>Lançar um gasto em poucos toques</li><li>Quanto entrou, quanto saiu e quanto sobrou</li><li>Separado por tipo: fornecedor, frete, aluguel...</li></ul>
+          <span class="ex">Ex.: caso real</span>
+          <div class="meta"><span>Prazo e valor sob medida</span><a href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento%20de%20Controle%20de%20gastos%20e%20caixa." target="_blank" rel="noopener">Pedir orçamento</a></div>
+        </div>
+        <div class="pkg">
+          <h3>Relatório que chega sozinho</h3>
+          <p class="for">Para quem junta números toda semana ou todo mês.</p>
+          <ul><li>Resumo em linguagem simples, no e-mail</li><li>PDF pronto para guardar ou mandar</li><li>Aviso quando algo sai do normal</li></ul>
+          <span class="ex">Ex.: caso real, Relatório de Vendas</span>
           <div class="meta"><span>Prazo e valor sob medida</span><a href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento%20de%20Relat%C3%B3rio%20autom%C3%A1tico." target="_blank" rel="noopener">Pedir orçamento</a></div>
         </div>
         <div class="pkg">
-          <h3>Dashboard</h3>
-          <p class="for">Para quem quer ver vendas ou financeiro sem abrir planilha.</p>
-          <ul><li>Indicadores escolhidos com você</li><li>Versão web que abre no celular</li><li>Atualização a partir dos seus dados</li></ul>
-          <span class="ex">Ex.: Financeiro PME, Tráfego Pago</span>
-          <div class="meta"><span>Prazo e valor sob medida</span><a href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento%20de%20Dashboard." target="_blank" rel="noopener">Pedir orçamento</a></div>
-        </div>
-        <div class="pkg">
-          <h3>Robô de coleta</h3>
-          <p class="for">Para quem acompanha preços ou informações de sites.</p>
-          <ul><li>Coleta agendada, sem ninguém apertar botão</li><li>Histórico e alerta do que mudou</li><li>Entrega em planilha ou página</li></ul>
-          <span class="ex">Ex.: Monitor CMED</span>
-          <div class="meta"><span>Prazo e valor sob medida</span><a href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento%20de%20Rob%C3%B4%20de%20coleta." target="_blank" rel="noopener">Pedir orçamento</a></div>
-        </div>
-        <div class="pkg">
-          <h3>Bot e integração</h3>
-          <p class="for">Para quem responde às mesmas perguntas o dia todo.</p>
-          <ul><li>WhatsApp ou Telegram</li><li>Integração com Google Sheets</li><li>IA nas respostas quando faz sentido</li></ul>
-          <span class="ex">Ex.: Vic &amp; Jão, Bot do Centro Acadêmico</span>
-          <div class="meta"><span>Prazo e valor sob medida</span><a href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento%20de%20Bot%20e%20integra%C3%A7%C3%A3o." target="_blank" rel="noopener">Pedir orçamento</a></div>
+          <h3>Atendimento no WhatsApp</h3>
+          <p class="for">Para quem responde as mesmas perguntas o dia todo.</p>
+          <ul><li>Cardápio, preços e horário na hora</li><li>Anota o pedido e guarda numa planilha</li><li>Atende fora do horário também</li></ul>
+          <span class="ex">Ex.: Vic &amp; Jão</span>
+          <div class="meta"><span>Prazo e valor sob medida</span><a href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento%20de%20Atendimento%20no%20WhatsApp." target="_blank" rel="noopener">Pedir orçamento</a></div>
         </div>
       </div>
     </div>
@@ -486,10 +706,10 @@ dialog.lb::backdrop{background:rgba(8,9,11,.86)}
       <div class="sec-h"><h2>Como funciona</h2><p>Você sabe o prazo e o valor antes de começar, e acompanha o andamento.</p></div>
       <div class="steps">
         <div class="rail" aria-hidden="true"><i></i></div>
-        <div class="step"><strong>Conversa</strong><p>Entendo o processo e onde está a perda de tempo.</p><div class="you"><b>Você me manda:</b> um exemplo da planilha ou um print do processo.</div></div>
+        <div class="step"><strong>Conversa</strong><p>Entendo como o seu negócio funciona e onde está a perda de tempo.</p><div class="you"><b>Você me manda:</b> uma foto do caderno, a planilha ou um print do sistema.</div></div>
         <div class="step"><strong>Proposta</strong><p>Escopo, prazo e valor por escrito.</p><div class="you"><b>Você decide:</b> sem compromisso até aprovar.</div></div>
         <div class="step"><strong>Construção</strong><p>Testo com os seus dados reais, não com exemplo.</p><div class="you"><b>Você vê:</b> o andamento antes da entrega final.</div></div>
-        <div class="step"><strong>Entrega</strong><p>Código documentado e explicação simples de como usar.</p><div class="you"><b>Você recebe:</b> um período de ajustes depois da entrega.</div></div>
+        <div class="step"><strong>Entrega</strong><p>Explico com calma como usar, no computador e no celular.</p><div class="you"><b>Você recebe:</b> um período de ajustes depois da entrega.</div></div>
       </div>
     </div>
   </section>
@@ -498,10 +718,11 @@ dialog.lb::backdrop{background:rgba(8,9,11,.86)}
     <div class="wrap faq">
       <div class="stick"><h2>Dúvidas comuns</h2><p>Não achou a sua? <a href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento." target="_blank" rel="noopener" style="color:var(--accent)">Pergunte no WhatsApp</a>.</p></div>
       <div>
-        <div class="qa"><button type="button" aria-expanded="false" aria-controls="a1" id="q1">Preciso trocar o sistema que uso hoje?<i aria-hidden="true"></i></button><div class="ans" id="a1" role="region" aria-labelledby="q1"><p>Não. A automação trabalha em cima do que você já exporta hoje, seja Excel, CSV ou Google Sheets.</p></div></div>
-        <div class="qa"><button type="button" aria-expanded="false" aria-controls="a2" id="q2">E se a planilha mudar de formato?<i aria-hidden="true"></i></button><div class="ans" id="a2" role="region" aria-labelledby="q2"><p>O robô avisa quando um arquivo chega diferente do esperado, em vez de somar errado. Ajustes desse tipo entram no período de ajustes combinado.</p></div></div>
-        <div class="qa"><button type="button" aria-expanded="false" aria-controls="a3" id="q3">O código fica comigo?<i aria-hidden="true"></i></button><div class="ans" id="a3" role="region" aria-labelledby="q3"><p>Fica. Entrego o código organizado e documentado, para você não depender de mim para continuar usando.</p></div></div>
-        <div class="qa"><button type="button" aria-expanded="false" aria-controls="a4" id="q4">Meus dados ficam seguros?<i aria-hidden="true"></i></button><div class="ans" id="a4" role="region" aria-labelledby="q4"><p>Uso só os dados necessários para o projeto e não compartilho com ninguém. Quando possível, a automação roda no seu próprio computador ou na sua conta.</p></div></div>
+        <div class="qa"><button type="button" aria-expanded="false" aria-controls="a0" id="q0">Preciso entender de computador?<i aria-hidden="true"></i></button><div class="ans" id="a0" role="region" aria-labelledby="q0"><p>Não. Eu monto tudo e explico do seu jeito. No caso real, a dona e o sócio usam pelo celular, no dia a dia.</p></div></div>
+        <div class="qa"><button type="button" aria-expanded="false" aria-controls="a1" id="q1">Preciso trocar o sistema que uso hoje?<i aria-hidden="true"></i></button><div class="ans" id="a1" role="region" aria-labelledby="q1"><p>Não. Eu trabalho em cima do que você já usa: o sistema da loja, a planilha do Excel ou do Google, ou até o caderno.</p></div></div>
+        <div class="qa"><button type="button" aria-expanded="false" aria-controls="a2" id="q2">E se a planilha mudar de formato?<i aria-hidden="true"></i></button><div class="ans" id="a2" role="region" aria-labelledby="q2"><p>O sistema avisa quando um arquivo chega diferente do esperado, em vez de somar errado. Ajustes desse tipo entram no período de ajustes combinado.</p></div></div>
+        <div class="qa"><button type="button" aria-expanded="false" aria-controls="a3" id="q3">Vou ter que pagar mensalidade de sistema?<i aria-hidden="true"></i></button><div class="ans" id="a3" role="region" aria-labelledby="q3"><p>Sempre que possível, eu monto com ferramentas gratuitas na conta do próprio negócio, como no caso real. Se você quiser acompanhamento depois da entrega, a gente combina à parte.</p></div></div>
+        <div class="qa"><button type="button" aria-expanded="false" aria-controls="a4" id="q4">Meus dados ficam seguros?<i aria-hidden="true"></i></button><div class="ans" id="a4" role="region" aria-labelledby="q4"><p>Uso só os dados necessários e não compartilho com ninguém. Sempre que possível, tudo fica na conta do próprio negócio, e só entra quem você liberar.</p></div></div>
         <div class="qa"><button type="button" aria-expanded="false" aria-controls="a5" id="q5">Como funciona o pagamento?<i aria-hidden="true"></i></button><div class="ans" id="a5" role="region" aria-labelledby="q5"><p>Fica combinado na proposta, por escrito, antes de qualquer trabalho começar. Você só aprova se fizer sentido para você.</p></div></div>
         <div class="qa"><button type="button" aria-expanded="false" aria-controls="a6" id="q6">Atende fora de Belém?<i aria-hidden="true"></i></button><div class="ans" id="a6" role="region" aria-labelledby="q6"><p>Sim. O trabalho é todo remoto, com conversas por chamada ou WhatsApp.</p></div></div>
       </div>
@@ -511,13 +732,13 @@ dialog.lb::backdrop{background:rgba(8,9,11,.86)}
   <section class="sec" id="sobre" style="padding-top:0">
     <div class="wrap about">
       <div class="txt">
-        <p>Sou o João Vitor. Estudo Sistemas de Informação na UFRA e trabalho com BI numa farmácia de manipulação, montando os painéis de vendas da equipe.</p>
-        <p>Conheço de perto a rotina de quem vive dentro de planilha. Foi daí que vieram os projetos acima: problemas que eu vi acontecer e resolvi com código.</p>
+        <p>Sou o João Vitor. Estudo Sistemas de Informação na UFRA e trabalho com dados numa farmácia de manipulação, montando os painéis de vendas da equipe.</p>
+        <p>Conheço de perto a rotina de quem vive dentro de planilha. Hoje também atendo pequenos negócios por conta própria, como a loja do caso real acima.</p>
       </div>
       <dl class="side">
-        <div><dt>Hoje</dt><dd>Estagiário de BI, Farmácia Dehon</dd></div>
+        <div><dt>Hoje</dt><dd>Estágio em dados, Farmácia Dehon</dd></div>
         <div><dt>Formação</dt><dd>Sistemas de Informação, UFRA</dd></div>
-        <div><dt>Ferramentas</dt><dd>Python, pandas, Excel, n8n, APIs</dd></div>
+        <div><dt>Trabalho com</dt><dd>Planilhas Google e Excel, painéis, WhatsApp e automações</dd></div>
         <div><dt>Código</dt><dd><a href="https://github.com/jvtdemiranda" target="_blank" rel="noopener">github.com/jvtdemiranda</a></dd></div>
       </dl>
     </div>
@@ -527,8 +748,8 @@ dialog.lb::backdrop{background:rgba(8,9,11,.86)}
     <div class="wrap">
       <div class="box">
         <div>
-          <h2>Tem uma tarefa que se repete toda semana?</h2>
-          <p class="lead">Me conta. Respondo com uma ideia de solução, prazo e valor.</p>
+          <h2>Quer ver os números do seu negócio sem dor de cabeça?</h2>
+          <p class="lead">Me conta como é hoje. Respondo com uma ideia de solução, prazo e valor.</p>
           <div class="ways">
             <div class="way"><div><span>WhatsApp</span><b id="w1"><a href="https://wa.me/5591993482608?text=Ol%C3%A1%20Jo%C3%A3o%2C%20vi%20seu%20portf%C3%B3lio%20e%20queria%20um%20or%C3%A7amento." target="_blank" rel="noopener">(91) 99348-2608</a></b></div><button type="button" data-copy="w1">Copiar</button></div>
             <div class="way"><div><span>E-mail</span><b id="w2"><a href="mailto:miranda.j9090@gmail.com?subject=Or%C3%A7amento%20pelo%20portf%C3%B3lio">miranda.j9090@gmail.com</a></b></div><button type="button" data-copy="w2">Copiar</button></div>
@@ -537,8 +758,8 @@ dialog.lb::backdrop{background:rgba(8,9,11,.86)}
         <div class="send">
           <h3>Para eu responder mais rápido, mande:</h3>
           <ol>
-            <li>O que a sua empresa faz e quem usa a planilha hoje.</li>
-            <li>Um exemplo do arquivo ou um print do processo.</li>
+            <li>O que o seu negócio faz (mercadinho, lanchonete, loja...) e quem cuida dos números hoje.</li>
+            <li>Uma foto do caderno, a planilha ou um print do sistema.</li>
             <li>Quanto tempo isso toma por semana.</li>
           </ol>
         </div>
@@ -698,10 +919,37 @@ dialog.lb::backdrop{background:rgba(8,9,11,.86)}
     t.addEventListener("pointerleave",()=>{t.style.setProperty("--x","-400px");t.style.setProperty("--y","-400px")});
   });
 
+  /* ---------- caso real: números sobem, barras enchem, gasto é lançado ---------- */
+  const telas=document.getElementById("telas"), rio=document.getElementById("rio");
+  if("IntersectionObserver" in window){
+    new IntersectionObserver((es,ob)=>{if(es[0].isIntersecting){rio.classList.add("vivo");ob.disconnect()}},{threshold:.3}).observe(rio);
+  } else rio.classList.add("vivo");
+  function animaTelas(){
+    if(!G||reduce) return;
+    const fmtN=n=>Math.round(n).toLocaleString("pt-BR");
+    const tl2=G.timeline({scrollTrigger:{trigger:telas,start:"top 80%",once:true}});
+    tl2.from(".tela",{y:30,opacity:0,duration:.6,ease:"power3.out",stagger:.1});
+    document.querySelectorAll(".tela [data-conta]").forEach(el=>{const to=+el.dataset.conta,pre=el.dataset.pre||"",o={v:0};tl2.to(o,{v:to,duration:1.4,ease:"power2.out",onUpdate(){el.textContent=pre+fmtN(o.v)}},.3)});
+    tl2.from(".scr .meta-bar i",{scaleX:0,duration:1.2,ease:"power3.out"},.4)
+       .from(".scr .bars i",{scaleY:0,duration:.6,ease:"power3.out",stagger:.06},.5)
+       .from(".mail .linha, .mail .ideia, .mail .pdf",{x:-12,opacity:0,duration:.4,ease:"power2.out",stagger:.08},.5);
+    /* o gasto é "digitado" e lançado em loop, enquanto a tela está visível */
+    const dig=document.querySelector(".digita"), ok=document.querySelector(".scr .ok"), btn=document.querySelector(".scr .lancar");
+    const alvo="86,40", loop=G.timeline({repeat:-1,repeatDelay:1.2,paused:true});
+    loop.call(()=>{dig.textContent="R$ "})
+        .to({},{duration:.4});
+    [...alvo].forEach((c,k)=>loop.call(()=>{dig.textContent="R$ "+alvo.slice(0,k+1)}).to({},{duration:.14}));
+    loop.to(btn,{scale:.94,duration:.12,ease:"power1.out"},"+=.3").to(btn,{scale:1,duration:.2,ease:"power2.out"})
+        .fromTo(ok,{y:10,opacity:0},{y:0,opacity:1,duration:.35,ease:"power3.out"})
+        .to(ok,{opacity:0,duration:.3},"+=1.6");
+    ScrollTrigger.create({trigger:telas,start:"top 85%",end:"bottom 10%",onToggle:s=>s.isActive?loop.play():loop.pause()});
+  }
+
   /* ---------- animações de entrada e scroll ---------- */
   const start=()=>{
     scrollTween(0);
     if(!G||reduce) return;
+    animaTelas();
     SplitText.create(".h1",{type:"lines",mask:"lines",autoSplit:true,onSplit(s){return G.from(s.lines,{yPercent:105,duration:1,ease:"power4.out",stagger:.1})}});
     G.from(".hero .up",{y:18,opacity:0,duration:.8,ease:"power3.out",stagger:.08,delay:.3});
     document.querySelectorAll(".count").forEach(el=>{const to=+el.dataset.to,o={v:0};G.to(o,{v:to,duration:1.6,ease:"power2.out",delay:.6,onUpdate(){el.textContent=Math.round(o.v).toLocaleString("pt-BR")}})});
